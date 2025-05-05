@@ -9,7 +9,7 @@ import Produto from '../pages/Produto'
 const Paths = () => {
     return (
         <>
-            <BrowserRouter>
+            <BrowserRouter basename="/e-commerce-shoes">
                 <Routes>
                     <Route path="/" element={<PageLayout />}>
                         <Route index element={<Home />} />
