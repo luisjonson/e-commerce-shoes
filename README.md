@@ -22,6 +22,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
 # Biblioteca
 ## npm install styled-components
+## primereact 
+## primeflex 
+## primeicons
 
 **Bibliotecara ultilizado no carocel**
 ## npm install swiper
