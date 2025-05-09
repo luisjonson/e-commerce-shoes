@@ -46,6 +46,16 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.container {
+  padding-top: 20px;
+  padding-left: 40px;
+  max-width: 100hv;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: var(--white);
+}
+
 .primary-button {
   width: 114;
   height: 40;
