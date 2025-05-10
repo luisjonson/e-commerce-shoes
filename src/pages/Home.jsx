@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from '../components/Card'
 import styled from 'styled-components';
+import Colecao from '../components/Colecao';
 
 function Home() {
   const HomeStaled = styled.div`
@@ -9,7 +10,8 @@ function Home() {
   
   return (
     <div>
-        <Card/>
+      <Colecao/>
+      <Card/>
     </div>
   )
 }

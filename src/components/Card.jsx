@@ -56,13 +56,13 @@ const CardConteiner = styled.div`
       gap: 1rem;
       display: flex;
       align-items: flex-end;
-      &.valor #descoto{
+      &.valor .descoto{
         text-decoration: line-through;
         font-size: 1.5rem;
         color: var(--light-gray);
       }
       
-      &.valor #valordesconto{
+      &.valor .valordesconto{
         font-size: 2rem;
         font-weight: bold;
         color: var(--dark-gray);
@@ -77,20 +77,22 @@ const Card = () => {
   return (
     <CardConteiner>
       <h4>Produto em alta</h4>
-      <div className="conteudo">
-        <div className='desconto'>
-          <p>30% OFF</p>
+      <>
+        <div className="conteudo">
+          <div className='desconto'>
+            <p>30% OFF</p>
+          </div>
+          <img src={tenis} alt='tenis'></img>
         </div>
-        <img src={tenis} alt='tenis'></img>
-      </div>
-      <div className="informacao">
-        <p id='tipo'>Tênis</p>
-        <h3>K-Swiss V8 - Masculino</h3>
-        <div className='valor'>
-          <p id='descoto'>$200</p>
-          <p id='valordesconto'>$100</p>
+        <div className="informacao">
+          <p id='tipo'>Tênis</p>
+          <h3>K-Swiss V8 - Masculino</h3>
+          <div className='valor'>
+            <p className='descoto'>$200</p>
+            <p className='valordesconto'>$100</p>
+          </div>
         </div>
-      </div>
+      </>
 
     </CardConteiner>
   )
