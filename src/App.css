@@ -30,7 +30,7 @@
   --light-gray-2-rgba: rgba(0, 0, 0, 0.15);
   --light-gray-3-rgba: rgba(245, 245, 245, 1);
   --white-rgba: rgba(255, 255, 255, 1);
-
+  --font-family-padrao: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * {
