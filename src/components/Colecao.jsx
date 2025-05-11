@@ -3,7 +3,7 @@ import camisa from '../assets/camisa-colecao.svg'
 import calca from '../assets/calca.svg'
 import hadfone from '../assets/hadfone.svg'
 import shoes from '../assets/shoes.svg'
-import boner from '../assets/boner.svg'
+import boner from '../assets/chapeu.svg'
 const Colecao = () => {
 
   const ColecaoStaled = styled.div`
