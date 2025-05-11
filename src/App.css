@@ -30,7 +30,7 @@
   --light-gray-2-rgba: rgba(0, 0, 0, 0.15);
   --light-gray-3-rgba: rgba(245, 245, 245, 1);
   --white-rgba: rgba(255, 255, 255, 1);
-  
+
 }
 
 * {
@@ -56,11 +56,16 @@ body {
   background-color: var(--white);
 }
 
-.primary-button {
-  width: 114;
-  height: 40;
+
+.primary{
+  margin-top: 10px;
+  width: 220px;
+  height: 48px;
   border-radius: 8px;
-  color: var(--primary)
+  background-color: var(--primary-rgba);
+  color: var(--light-gray-3);
+  border: none;
+  cursor: pointer;
 }
 
 a {
@@ -96,4 +101,14 @@ hr{
   max-width: 1300px;       
   margin: 0 auto;     
   border: 0.5px solid white; 
+}
+
+.text-medium{
+  font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  font-weight: 400px;
+  line-height: 24px;
+  letter-spacing: 0.1rem;
+  line-height: 2rem;
+  color: var(--dark-gray-2);
 }
