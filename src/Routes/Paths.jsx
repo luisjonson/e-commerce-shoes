@@ -1,11 +1,10 @@
-import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from '../pages/Home'
-import Produtos from '../pages/Produtos'
 import PageLayout from '../layouts/PageLayout'
+import Cadastro from '../pages/Cadastro'
+import Home from '../pages/Home'
 import Notfound from '../pages/Notfound'
 import Produto from '../pages/Produto'
-import Login from '../pages/Login'
+import Produtos from '../pages/Produtos'
 
 const Paths = () => {
     return (
@@ -17,7 +16,7 @@ const Paths = () => {
                         <Route path="/produtos" element={<Produtos />} />
                         <Route path="/produto/:id" element={<Produto />} />
                     </Route>
-                    <Route path='cadastre' element={<Login/>}/>
+                    <Route path='cadastre' element={<Cadastro/>}/>
                     <Route path="*" element={<Notfound />} />
                 </Routes>
             </BrowserRouter>
