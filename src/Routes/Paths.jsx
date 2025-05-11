@@ -5,6 +5,7 @@ import Produtos from '../pages/Produtos'
 import PageLayout from '../layouts/PageLayout'
 import Notfound from '../pages/Notfound'
 import Produto from '../pages/Produto'
+import Login from '../pages/Login'
 
 const Paths = () => {
     return (
@@ -16,6 +17,7 @@ const Paths = () => {
                         <Route path="/produtos" element={<Produtos />} />
                         <Route path="/produto/:id" element={<Produto />} />
                     </Route>
+                    <Route path='cadastre' element={<Login/>}/>
                     <Route path="*" element={<Notfound />} />
                 </Routes>
             </BrowserRouter>
