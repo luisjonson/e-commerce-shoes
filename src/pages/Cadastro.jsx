@@ -16,7 +16,7 @@ const Cadastro = () => {
           <InputWithLabel label='E-mail' type="email" />
           <InputWithLabel label='Senha' type="password" />
           <InputWithLabel label='Confirmar senha' type="password" />
-          <InputWithLabel label='Eu aceito os termos de uso e políticas de privacidade ' type="checkbox" />
+          <InputWithLabel label='Eu aceito os termos de uso e políticas de privacidade ' type="checkbox" required/>
           <button type='submit' style={{width: '100%'}} className='primary'>Cadastrar</button>
         </FormCard>
       </form>
