@@ -7,13 +7,29 @@ import Card_slider from '../components/Card_slider'
 
 function Home() {
   const HomeStaled = styled.div`
+
+    & .swiper-pagination-bullet-active{
+      background-color: var(--primary);
+    }
+
+    & .swiper-button-prev{
+      color: var(--primary);
+    }
+    
+    & .swiper-button-next{
+      color: var(--primary);
+    }
+
   `
+
+  
   return (
     <HomeStaled>
       <Carousel settings={{
         slidesPerView: 1,
         spaceBetween: 20,
-        pagination: { clickable: true },
+        navigation: true,
+        pagination: { clickable: false },
         loop: true
       }}>
         <Card_slider />

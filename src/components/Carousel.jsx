@@ -1,14 +1,16 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import React from 'react';
-import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, A11y, Pagination } from 'swiper/modules';
 
 const Carousel = ({ settings, children }) => {
     return (
         <>
             <Swiper {...settings}
                 pagination= {settings ?? {clickable:true}}
-                modules={[Pagination]}
+                modules={[Navigation, Pagination, A11y]}
             
             >
                 {React.Children.map(children,(child, index) =>(
