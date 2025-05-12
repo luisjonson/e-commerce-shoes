@@ -2,9 +2,14 @@ import { NavLink } from 'react-router-dom'
 import logo from '../assets/logo-header.svg'
 import carrinho from '../assets/mini-cart.svg'
 import search from '../assets/Search.svg'
+import { useNavigate } from 'react-router-dom';
 import '../css/Header.css'
 
 const Header = () => {
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    navigate('login')
+  }
   return (
     <>
       <div className='container'>
@@ -15,7 +20,7 @@ const Header = () => {
             <img id='icon-search' src={search} alt="Logo" />
           </div>
           <NavLink to="cadastre">Cadastre-se</NavLink>
-          <button>Entrar</button>
+          <button onClick={handleLogin}>Entrar</button>
           <div className="carrinho">
             <img src={carrinho} alt="Carrinho" />
             <span>0</span>

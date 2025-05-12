@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PageLayout from '../layouts/PageLayout'
 import Cadastro from '../pages/Cadastro'
+import Login from '../pages/Login'
 import Home from '../pages/Home'
 import Notfound from '../pages/Notfound'
 import Produto from '../pages/Produto'
@@ -17,6 +18,7 @@ const Paths = () => {
                         <Route path="/produto/:id" element={<Produto />} />
                     </Route>
                     <Route path='cadastre' element={<Cadastro/>}/>
+                    <Route path='login' element={<Login/>}/>
                     <Route path="*" element={<Notfound />} />
                 </Routes>
             </BrowserRouter>
