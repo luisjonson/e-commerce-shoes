@@ -30,6 +30,8 @@
   --light-gray-2-rgba: rgba(0, 0, 0, 0.15);
   --light-gray-3-rgba: rgba(245, 245, 245, 1);
   --white-rgba: rgba(255, 255, 255, 1);
+  --color-surface-light: rgba(216, 227, 242, 1);
+
   --font-family-padrao: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -149,4 +151,25 @@ input:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 2px rgba(235, 4, 123, 0.1);
+}
+
+.desconto{
+  margin: 1rem;
+  width: 96px;
+  height: 32px;
+  display: flex;
+  border-radius: 29px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--green-limon);
+}
+
+.desconto p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+h4 {
+  margin: 10px;
 }

@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import Card from '../components/Card';
 import Colecao from '../components/Colecao';
 import Card_slider from '../components/Card_slider'
+import Card_oferta from '../components/Card_oferta';
 
 
 function Home() {
   const HomeStaled = styled.div`
-
+    margin: 50px;
     & .swiper-pagination-bullet-active{
       background-color: var(--primary);
     }
@@ -39,6 +40,9 @@ function Home() {
         <Card_slider />
         <Card_slider />
       </Carousel>
+      <h4>Coleções em destaque</h4>
+      <Card_oferta/>
+      <Card_oferta/>
       <Colecao />
       <Card />
     </HomeStaled>

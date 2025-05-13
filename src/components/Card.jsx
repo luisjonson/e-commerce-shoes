@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 import tenis from '../assets/tenis_template.svg'
+import Tiket_oferta from '../components/Tiket_oferta'
 
 const CardConteiner = styled.div`
   width: 292px;
-  height: 439px;
+  height: 469px;
   border-radius: 4px;
   overflow: hidden;
   margin: 50px;
@@ -22,21 +23,7 @@ const CardConteiner = styled.div`
       width: 250px;
       height: 240px;
     }
-    & .desconto{
-      margin:1rem;
-      width: 96px;
-      height: 32px;
-      display: flex;
-      justify-content: center;
-      border-radius: 29px;
-      align-items: center;
-      background-color: var(--green-limon);
-
-      &.desconto p{
-        margin: 0;
-        font-size: 12px;
-      }
-    }
+    
     
   } 
   & .informacao {
@@ -68,8 +55,6 @@ const CardConteiner = styled.div`
         color: var(--dark-gray);
       }
     }
-
-    
   }
 `
 
@@ -77,11 +62,8 @@ const Card = () => {
   return (
     <CardConteiner>
       <h4>Produto em alta</h4>
-      <>
         <div className="conteudo">
-          <div className='desconto'>
-            <p>30% OFF</p>
-          </div>
+          <Tiket_oferta valor_oferta="30"/>
           <img src={tenis} alt='tenis'></img>
         </div>
         <div className="informacao">
@@ -92,7 +74,6 @@ const Card = () => {
             <p className='valordesconto'>$100</p>
           </div>
         </div>
-      </>
 
     </CardConteiner>
   )
