@@ -14,8 +14,6 @@
     justify-content: end;
 }
 
-
-
 input::placeholder {
     color: var(--light-gray-2-rgba);
     font-size: 14px;
