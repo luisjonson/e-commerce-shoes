@@ -4,6 +4,7 @@ import facebook from '../assets/facebook.svg'
 import instagram from '../assets/instagram.svg'
 import twitter from '../assets/twitter.svg'
 import styled from 'styled-components';
+import '../css/Footer.css'
 
 function Footer() {
 
