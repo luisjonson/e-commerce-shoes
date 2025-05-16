@@ -50,12 +50,21 @@ body {
 
 .container {
   padding-top: 20px;
-  padding-left: 40px;
+  padding-left: 80px;
   max-width: 100hv;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   background-color: var(--white);
+}
+
+.container .search{
+  margin-top: 20px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  /*background-color: var(--light-gray);*/
 }
 
 
@@ -118,20 +127,20 @@ hr{
 input {
     width: 100%;
     height: 40px;
-    border-radius: 8px;
-    padding: 0 10px;
+    border-radius: 10px solid rgb(99, 98, 98);
+    padding: 0;
     box-sizing: border-box;
 }
 
 input:hover {
-    border-color: var(--light-gray); /* Cor quando hover */
-    box-shadow: 0 0 0 2px rgba(192, 6, 161, 0.28); /* Sombra sutil */
+    /*border-color: var(--light-gray); /* Cor quando hover */
+    box-shadow: 0 0 0 2px rgba(136, 136, 136, 0.28);  /* Sombra sutil*/
   }
   
 input:focus {
   outline: none;
   border-color: var(--light-gray);
-  box-shadow: 0 0 0 3px rgba(237, 6, 198, 0.28);
+  /*box-shadow: 0 0 0 3px rgba(237, 6, 198, 0.28);*/
 }
 
 .input-field {
