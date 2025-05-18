@@ -12,6 +12,10 @@ const CardConteiner = styled.div`
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
+
+  h4 {
+    margin-bottom: 10px;
+  }
   
   & .conteudo {
     width: 292px;
@@ -62,18 +66,18 @@ const Card = () => {
   return (
     <CardConteiner>
       <h4>Produto em alta</h4>
-        <div className="conteudo">
-          <Tiket_oferta valor_oferta="30"/>
-          <img src={tenis} alt='tenis'></img>
+      <div className="conteudo">
+        <Tiket_oferta valor_oferta="30" />
+        <img src={tenis} alt='tenis'></img>
+      </div>
+      <div className="informacao">
+        <p id='tipo'>Tênis</p>
+        <h3>K-Swiss V8 - Masculino</h3>
+        <div className='valor'>
+          <p className='descoto'>$200</p>
+          <p className='valordesconto'>$100</p>
         </div>
-        <div className="informacao">
-          <p id='tipo'>Tênis</p>
-          <h3>K-Swiss V8 - Masculino</h3>
-          <div className='valor'>
-            <p className='descoto'>$200</p>
-            <p className='valordesconto'>$100</p>
-          </div>
-        </div>
+      </div>
 
     </CardConteiner>
   )

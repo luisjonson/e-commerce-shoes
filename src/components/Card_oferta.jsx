@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Tiket_oferta from '../components/Tiket_oferta';
-
+import Secondary_button from './button/Secondary_button';
 import collection from '../assets/collection-3.png'
 
 const Card_ofertaStyled = styled.div`
@@ -8,12 +8,12 @@ const Card_ofertaStyled = styled.div`
    display: flex;
    justify-content: space-between;
    flex-direction: row;
-  & .conteudo{
-    width: 405px;
-    background-color: var(--color-surface-light);
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;    // evitar que o botão ultrapasse o card
+   & .conteudo{
+     width: 405px;
+     background-color: var(--color-surface-light);
+     border-radius: 8px;
+     position: relative;
+     overflow: hidden;  
       & .primary{
         width: 153px;
         position: absolute;
@@ -41,9 +41,7 @@ const Card_oferta = (
       <div className="conteudo">
         <Tiket_oferta valor_oferta={oferta} />
         <img src={collection} alt={alt}></img>
-        <div>
-          <button className='primary'>Comprar</button>
-        </div>
+        <Secondary_button className='primary'>Comprar</Secondary_button>
       </div>
     </Card_ofertaStyled>
   )
