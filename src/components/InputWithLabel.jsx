@@ -1,4 +1,5 @@
 import '../css/InputWithLabel.css';
+import CheckboxLabel from './checkboxLabel';
 
 const InputWithLabel = ({
   label,
@@ -15,24 +16,15 @@ const InputWithLabel = ({
   const isCheckbox = type === "checkbox";
 
 
+
   return (
     <div className={`input-group ${className}`}>
       {isCheckbox ? (
-        <>
-          <input
-            id={inputId}
-            type={type}
-            value={value}
-            onChange={onChange}
-            placeholder={placeholder}
-            required={required}
-            className={className}
-          /> 
+        <CheckboxLabel >
           <label htmlFor={inputId}>
             {label}
-            {required && <span className="required-asterisk">*</span>}
           </label>
-        </>
+        </CheckboxLabel>
       ) : (
         <>
           <label htmlFor={inputId} className="input-label">
