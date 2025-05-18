@@ -39,7 +39,7 @@ const Card_oferta = (
   return (
     <Card_ofertaStyled >
       <div className="conteudo">
-        <Tiket_oferta className='desconto'  valor_oferta={oferta} />
+        <Tiket_oferta valor_oferta={oferta} />
         <img src={collection} alt={alt}></img>
         <div>
           <button className='primary'>Comprar</button>
