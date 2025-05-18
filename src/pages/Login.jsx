@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import FormCard from "../components/FormCard"
 import InputWithLabel from "../components/InputWithLabel"
+import Primary_button from "../components/button/Primary_button";
 import styled from 'styled-components';
 
 const LoginStyled = styled.div`
@@ -22,7 +23,7 @@ const Login = () => {
           <InputWithLabel label="Lembra meu acesso" type="checkbox"></InputWithLabel>
           <NavLink>esqueceu sanha</NavLink>
         </div>
-        <button type='submit' className='primary'>Entrar</button>
+        <Primary_button type='submit' className='primary'>Entrar</Primary_button>
       </FormCard>
     </LoginStyled>
   )

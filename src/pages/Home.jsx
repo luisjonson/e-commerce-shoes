@@ -1,9 +1,10 @@
-import Carousel from '../components/Carousel';
 import styled from 'styled-components';
 import Card from '../components/Card';
-import Colecao from '../components/Colecao';
-import Card_slider from '../components/Card_slider'
 import Card_oferta from '../components/Card_oferta';
+import Card_slider from '../components/Card_slider';
+import Carousel from '../components/Carousel';
+import Colecao from '../components/Colecao';
+
 
 
 function Home() {
@@ -11,8 +12,8 @@ function Home() {
     margin: 50px;
 
     & .destaques {
-      max-width: 100%; /* ou o mesmo que seus cards usam */
-      margin: 0 auto; /* centraliza */
+      max-width: 100%; 
+      margin: 0 auto; 
       padding-top: 100px;
     }
 
@@ -40,8 +41,6 @@ function Home() {
     }
 
   `
-
-
   return (
     <HomeStaled>
       <Carousel settings={{
@@ -58,7 +57,6 @@ function Home() {
         <Card_slider />
         <Card_slider />
       </Carousel>
-
       <section class="destaques">
         <h4 class="titulo">Coleções em destaque</h4>
         <div className='cards-container'>
