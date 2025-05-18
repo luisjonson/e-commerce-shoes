@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import sapato_slide from '../assets/sapato_slider.svg'
 import five from '../assets/five.jpeg'
+import Primary_button from './button/Primary_button';
 
 const Card_sliderConteiner = styled.div`
   width: 100%;
@@ -59,7 +60,7 @@ const Card = () => {
               <img src={produto.imag1} alt="Queima de estoque" />
             </div>
             <h5 className='text-medium'>{produto.descricao}</h5>
-            <button className='primary'>Ver Oferta</button>
+            <Primary_button className='primary'>Ver Oferta</Primary_button>
           </div>
           <div className='item'>
             <img src={produto.imag2}></img>
