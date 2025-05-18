@@ -9,6 +9,24 @@ import Card_oferta from '../components/Card_oferta';
 function Home() {
   const HomeStaled = styled.div`
     margin: 50px;
+
+    & .destaques {
+      max-width: 100%; /* ou o mesmo que seus cards usam */
+      margin: 0 auto; /* centraliza */
+      padding-top: 100px;
+    }
+
+    & .titulo {
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    & .cards-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
     & .swiper-pagination-bullet-active{
       background-color: var(--primary);
     }
@@ -23,7 +41,7 @@ function Home() {
 
   `
 
-  
+
   return (
     <HomeStaled>
       <Carousel settings={{
@@ -40,9 +58,15 @@ function Home() {
         <Card_slider />
         <Card_slider />
       </Carousel>
-      <h4>Coleções em destaque</h4>
-      <Card_oferta/>
-      <Card_oferta/>
+
+      <section class="destaques">
+        <h4 class="titulo">Coleções em destaque</h4>
+        <div className='cards-container'>
+          <Card_oferta />
+          <Card_oferta />
+          <Card_oferta />
+        </div>
+      </section>
       <Colecao />
       <Card />
     </HomeStaled>
