@@ -10,11 +10,11 @@ const CheckboxLabel = (
     }) => {
 
     const CheckboxLabelStyled = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.2rem;
-  `
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.2rem;
+     `
     return (
         <CheckboxLabelStyled>
             <input

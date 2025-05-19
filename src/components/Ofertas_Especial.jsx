@@ -13,6 +13,7 @@ const Ofertas_Especial = () => {
         display: flex;
         margin: 0 auto; 
         max-width: 100%; 
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
         background-color: var(--white);

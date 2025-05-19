@@ -1,24 +1,77 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import CheckboxLabel from '../components/checkboxLabel'
+import SelectMenu from '../components/SelectMenu'
 
+CheckboxLabel
 const Produtos = () => {
-  return (
-    <div>
-      <h1>Produto</h1>
-      <ul>
-        <li><Link to="/produto/1" > Produto 1 </Link></li>
-        <li><Link to="/produto/2" > Produto 2 </Link></li>
-        <li><Link to="/produto/3" > Produto 3 </Link></li>
-        <li><Link to="/produto/4" > Produto 4 </Link></li>
-        <li><Link to="/produto/5" > Produto 5 </Link></li>
-        <li><Link to="/produto/6" > Produto 6 </Link></li>
-        <li><Link to="/produto/7" > Produto 7 </Link></li>
-        <li><Link to="/produto/8" > Produto 8 </Link></li>
-        <li><Link to="/produto/9" > Produto 9 </Link></li>
-        <li><Link to="/produto/10" > Produto 10 </Link></li>         
+  const ProdutoStyled = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* background-color: red; */
 
-      </ul>
-    </div>
+    & .content {
+      width: 85%;
+
+      & .content-filtro{
+      height: 15vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+      & .filtro{
+        width: 308px;
+        border: 15px solid var(--white);
+        margin-bottom: 2vh;
+        background-color: var(--white);
+        & h3{
+          margin-bottom:10px;
+        }
+      }
+    }
+`
+
+  return (
+    <ProdutoStyled>
+      <div className="content">
+        <div className='content-filtro'>
+          <div className='resultado'>
+            <h6>Resultados para "Tênis" - 389 produtos</h6>
+          </div>
+          <div className='orderBy'>
+            <SelectMenu></SelectMenu>
+          </div>
+        </div>
+
+        <div className='filtro'>
+          <h3>Marka</h3>
+          <ul>
+            <li>
+              <CheckboxLabel>
+                <label>Calenciaga</label>
+              </CheckboxLabel>
+            </li>
+            <li>
+              <CheckboxLabel>
+                <label>Calenciaga</label>
+              </CheckboxLabel>
+            </li>
+            <li>
+              <CheckboxLabel>
+                <label>Calenciaga</label>
+              </CheckboxLabel>
+            </li>
+            <li>
+              <CheckboxLabel>
+                <label>Calenciaga</label>
+              </CheckboxLabel>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </ProdutoStyled>
   )
 }
 
