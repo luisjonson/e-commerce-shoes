@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import CheckboxLabel from '../components/checkboxLabel'
 import SelectMenu from '../components/SelectMenu'
+import CardProduto from '../components/CardProduto'
 
 CheckboxLabel
 const Produtos = () => {
@@ -22,12 +23,20 @@ const Produtos = () => {
     }
 
       & .filtro{
-        width: 308px;
-        border: 15px solid var(--white);
-        margin-bottom: 2vh;
-        background-color: var(--white);
-        & h3{
-          margin-bottom:10px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        
+        & #categoria-filtro{
+          width: 308px;
+          border: 15px solid var(--white);
+          margin-bottom: 2vh;
+          background-color: var(--white);
+
+          & h3{
+            margin-bottom:10px;
+          }
         }
       }
     }
@@ -46,29 +55,35 @@ const Produtos = () => {
         </div>
 
         <div className='filtro'>
-          <h3>Marka</h3>
-          <ul>
-            <li>
-              <CheckboxLabel>
-                <label>Calenciaga</label>
-              </CheckboxLabel>
-            </li>
-            <li>
-              <CheckboxLabel>
-                <label>Calenciaga</label>
-              </CheckboxLabel>
-            </li>
-            <li>
-              <CheckboxLabel>
-                <label>Calenciaga</label>
-              </CheckboxLabel>
-            </li>
-            <li>
-              <CheckboxLabel>
-                <label>Calenciaga</label>
-              </CheckboxLabel>
-            </li>
-          </ul>
+          <div id='categoria-filtro'>
+            <h3>Marka</h3>
+            <ul>
+              <li>
+                <CheckboxLabel>
+                  <label>Calenciaga</label>
+                </CheckboxLabel>
+              </li>
+              <li>
+                <CheckboxLabel>
+                  <label>Calenciaga</label>
+                </CheckboxLabel>
+              </li>
+              <li>
+                <CheckboxLabel>
+                  <label>Calenciaga</label>
+                </CheckboxLabel>
+              </li>
+              <li>
+                <CheckboxLabel>
+                  <label>Calenciaga</label>
+                </CheckboxLabel>
+              </li>
+            </ul>
+          </div>
+          <CardProduto className='cardProduto'  desconto={10}></CardProduto>
+          <CardProduto desconto={10}></CardProduto>
+          <CardProduto desconto={10}></CardProduto>
+          <CardProduto desconto={10}></CardProduto>
         </div>
       </div>
     </ProdutoStyled>
