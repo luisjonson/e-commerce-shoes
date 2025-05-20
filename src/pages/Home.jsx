@@ -1,13 +1,26 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Card from '../components/Card';
 import Card_oferta from '../components/Card_oferta';
 import Card_slider from '../components/Card_slider';
+import CardProduto from '../components/CardProduto';
 import Carousel from '../components/Carousel';
 import Colecao from '../components/Colecao';
-
+import { API } from '../services';
 
 
 function Home() {
+  const [produtos, setProdutos] = useState([]);
+
+  async function buscarProdutos() {
+    const request = await API.get('/products')
+    setProdutos(request.data);
+  }
+
+  useEffect(() => {
+    buscarProdutos();
+  }, []);
+
+
   const HomeStaled = styled.div`
     margin: 50px;
 
@@ -66,7 +79,20 @@ function Home() {
         </div>
       </section>
       <Colecao />
-      <Card />
+
+
+      {produtos.length > 0 && (
+        <section class="destaques">
+          <h4 class="titulo">Produtos em destaque</h4>
+          <div c>
+            {produtos.map((produto) => (
+              <CardProduto key={produto.id} image={produto.image} category={produto.category} title={produto.title}
+                price={produto.price} alt={produto.title}/>
+            ))}
+          </div>
+        </section>
+      )}
+
     </HomeStaled>
   )
 }

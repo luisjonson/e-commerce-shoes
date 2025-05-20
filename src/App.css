@@ -150,24 +150,6 @@ input:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 2px rgba(235, 4, 123, 0.1);
 }
-
-.desconto{
-  margin: 1rem;
-  width: 96px;
-  height: 32px;
-  display: flex;
-  border-radius: 29px;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--green-limon);
-}
-
-.desconto p {
-  margin: 0;
-  font-size: 12px;
-  font-weight: bold;
-}
-
 .queima img{
   display: block;
   position: relative;
