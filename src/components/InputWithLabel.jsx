@@ -8,31 +8,27 @@ const InputWithLabel = ({
   onChange,
   placeholder = '',
   required = false,
-  id,
   className = ''
 }) => {
   // Gera um ID único se não for fornecido
-  const inputId = id || `input-${Math.random().toString(36).substring(2, 9)}`;
   const isCheckbox = type === "checkbox";
-
-
 
   return (
     <div className={`input-group ${className}`}>
       {isCheckbox ? (
-        <CheckboxLabel >
-          <label htmlFor={inputId}>
+        <CheckboxLabel value={value} onChange={onChange} required >
+          <label  >
             {label}
           </label>
         </CheckboxLabel>
       ) : (
         <>
-          <label htmlFor={inputId} className="input-label">
+          <label  className="input-label" onChange={onChange}>
             {label}
             {required && <span className="required-asterisk">*</span>}
           </label>
           <input
-            id={inputId}
+            // id={inputId}
             type={type}
             value={value}
             onChange={onChange}
