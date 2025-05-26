@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import CheckboxLabel from '../components/checkboxLabel'
 import SelectMenu from '../components/SelectMenu'
 import CardProduto from '../components/CardProduto'
+import { Genero } from '../ultis/Genero'
+// import genero from '../ultis/Genero.jsx'
 
 CheckboxLabel
 const Produtos = () => {
@@ -56,29 +58,16 @@ const Produtos = () => {
 
         <div className='filtro'>
           <div id='categoria-filtro'>
-            <h3>Marka</h3>
-            <ul>
-              <li>
-                <CheckboxLabel>
-                  <label>Calenciaga</label>
-                </CheckboxLabel>
-              </li>
-              <li>
-                <CheckboxLabel>
-                  <label>Calenciaga</label>
-                </CheckboxLabel>
-              </li>
-              <li>
-                <CheckboxLabel>
-                  <label>Calenciaga</label>
-                </CheckboxLabel>
-              </li>
-              <li>
-                <CheckboxLabel>
-                  <label>Calenciaga</label>
-                </CheckboxLabel>
-              </li>
-            </ul>
+            <h3>Gênero</h3>
+            <CheckboxLabel>
+              <label>{Genero.MASCULINO}</label>
+            </CheckboxLabel>
+            <CheckboxLabel>
+              <label>{Genero.FEMININO}</label>
+            </CheckboxLabel>
+            <CheckboxLabel>
+              <label>{Genero.UNISEX}</label>
+            </CheckboxLabel>
           </div>
           <CardProduto className='cardProduto'  desconto={10}></CardProduto>
           <CardProduto desconto={10}></CardProduto>
