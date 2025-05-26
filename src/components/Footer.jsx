@@ -6,50 +6,47 @@ import twitter from '../assets/twitter.svg'
 import styled from 'styled-components';
 import '../css/Footer.css'
 
-function Footer() {
+const FooterContainer = styled.footer`
+  background-color: var(--dark-gray);
+  color: var(--white);
+  padding: 40px 20px;
+  & .conteiner-footer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    max-width: 1300px;
+    margin: 0 auto;
+    
+    & .footerSection{
+      flex: 1;
+      min-width: 250px;
+      margin: 20px;
 
-  const FooterContainer = styled.footer`
-    background-color: var(--dark-gray);
-    color: var(--white);
-    padding: 40px 20px;
-    & .conteiner-footer{
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      max-width: 1300px;
-      margin: 0 auto;
-      
-      & .footerSection{
-        flex: 1;
-        min-width: 250px;
-        margin: 20px;
-
-        & .sectionTitle{
-          font-weight: bold;
-          size: 18px;
-          &.sectionTitle p {
-            top: 10px;
-          }
-        }
-
-        & .parceiro {
-          display: flex;
-          justify-content: flex-start;
-          gap: 30px;
-          &.parceiro img{
-            width: 10.92px;
-            left: 20.53px;
-            
-          }
+      & .sectionTitle{
+        font-weight: bold;
+        size: 18px;
+        &.sectionTitle p {
+          top: 10px;
         }
       }
 
-      & #referencia{
-        color: red;
+      & .parceiro {
+        display: flex;
+        justify-content: flex-start;
+        gap: 30px;
+        &.parceiro img{
+          width: 10.92px;
+          left: 20.53px;
+          
+        }
       }
     }
-  `
+  }
+`
+
+function Footer() {
+  
   return (
     <FooterContainer>
       <div className="conteiner-footer">

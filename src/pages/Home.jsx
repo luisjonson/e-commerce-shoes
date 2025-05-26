@@ -7,38 +7,28 @@ import Carousel from '../components/Carousel';
 import Colecao from '../components/Colecao';
 import { API } from '../services';
 
-
-function Home() {
-  const [produtos, setProdutos] = useState([]);
-
-  async function buscarProdutos() {
-    const request = await API.get('/products')
-    setProdutos(request.data);
-  }
-
-  useEffect(() => {
-    buscarProdutos();
-  }, []);
-
-
-  const HomeStaled = styled.div`
+ const HomeStaled = styled.div`
     margin: 50px;
 
     & .destaques {
       max-width: 100%; 
-      margin: 0 auto; 
       padding-top: 100px;
-    }
+        
+        & .titulo {
+          margin-left: 1rem; 
+          font-size: 20px;
+          font-weight: bold;
+          text-align: left;
+          margin-bottom: 10px;
+        }
 
-    & .titulo {
-      margin-bottom: 10px;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    & .cards-container {
-      display: flex;
-      justify-content: space-between;
+        & .cards-container {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
     }
 
     & .swiper-pagination-bullet-active{
@@ -54,6 +44,19 @@ function Home() {
     }
 
   `
+
+function Home() {
+  const [produtos, setProdutos] = useState([]);
+
+  async function buscarProdutos() {
+    const request = await API.get('/products')
+    setProdutos(request.data);
+  }
+
+  useEffect(() => {
+    buscarProdutos();
+  }, []);
+ 
   return (
     <HomeStaled>
       <Carousel settings={{
@@ -70,21 +73,21 @@ function Home() {
         <Card_slider />
         <Card_slider />
       </Carousel>
-      <section class="destaques">
-        <h4 class="titulo">Coleções em destaque</h4>
-        <div className='cards-container'>
-          <Card_oferta />
-          <Card_oferta />
-          <Card_oferta />
-        </div>
+      <section className="destaques">
+          <h4 className="titulo">Coleções em destaque</h4>
+          <div className='cards-container'>
+            <Card_oferta />
+            <Card_oferta />
+            <Card_oferta />
+          </div>
       </section>
       <Colecao />
 
 
       {produtos.length > 0 && (
-        <section class="destaques">
-          <h4 class="titulo">Produtos em destaque</h4>
-          <div c>
+        <section className="destaques">
+          <h4 className="titulo">Produtos em destaque</h4>
+          <div className='cards-container'>
             {produtos.map((produto) => (
               <CardProduto key={produto.id} image={produto.image} category={produto.category} title={produto.title}
                 price={produto.price} alt={produto.title}/>

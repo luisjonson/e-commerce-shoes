@@ -8,17 +8,20 @@ const Card_ofertaStyled = styled.div`
    display: flex;
    justify-content: space-between;
    flex-direction: row;
+   margin: 0 auto;
    & .conteudo{
-     width: 405px;
+     width: 202.2px;
+     height: 125.5px;
      background-color: var(--color-surface-light);
      border-radius: 8px;
      position: relative;
      overflow: hidden;  
       & .primary{
-        width: 153px;
+        width: 76.5px;
+        height: 24px;
         position: absolute;
-        bottom: 20px;
-        left: 20px;
+        bottom: 9px;
+        left: 10px;
         background-color: var(  --light-gray-3);
         color: var(--primary);
         font-weight: bold;
@@ -26,8 +29,8 @@ const Card_ofertaStyled = styled.div`
   }
   
   & img{
-    width: 405px;
-    height: 251px;
+    width: 202px;
+    height: 93.5px;
   }
 `
 const Card_oferta = (

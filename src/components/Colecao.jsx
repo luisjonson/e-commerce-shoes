@@ -4,9 +4,8 @@ import calca from '../assets/calca.svg'
 import hadfone from '../assets/hadfone.svg'
 import shoes from '../assets/shoes.svg'
 import boner from '../assets/chapeu.svg'
-const Colecao = () => {
 
-  const ColecaoStaled = styled.div`
+const ColecaoStaled = styled.div`
   width: 50%;
   margin: 20vh auto;
 
@@ -79,57 +78,54 @@ const Colecao = () => {
   }
 `;
 
+const Colecao = () => {
 
-
-
-
-
-return (
-  <ColecaoStaled>
-    {/* Header separado */}
-    <div className="content-header">
-      <span className="titulo">Coleções em destaque</span>
-    </div>
-
-    {/* Todos os itens dentro do mesmo wrapper em linha */}
-    <div className="content-itens-wrapper">
-      <div className="content-itens">
-        <div className="itens">
-          <img src={camisa} alt="Camisetas" />
-        </div>
-        <label>Camisetas</label>
+  return (
+    <ColecaoStaled>
+      {/* Header separado */}
+      <div className="content-header">
+        <span className="titulo">Coleções em destaque</span>
       </div>
 
-      <div className="content-itens">
-        <div className="itens">
-          <img src={calca} alt="Calças" />
+      {/* Todos os itens dentro do mesmo wrapper em linha */}
+      <div className="content-itens-wrapper">
+        <div className="content-itens">
+          <div className="itens">
+            <img src={camisa} alt="Camisetas" />
+          </div>
+          <label>Camisetas</label>
         </div>
-        <label>Calças</label>
-      </div>
 
-      <div className="content-itens">
-        <div className="itens">
-          <img src={boner} alt="Bonés" />
+        <div className="content-itens">
+          <div className="itens">
+            <img src={calca} alt="Calças" />
+          </div>
+          <label>Calças</label>
         </div>
-        <label>Bonés</label>
-      </div>
 
-      <div className="content-itens">
-        <div className="itens">
-          <img src={hadfone} alt="Headphones" />
+        <div className="content-itens">
+          <div className="itens">
+            <img src={boner} alt="Bonés" />
+          </div>
+          <label>Bonés</label>
         </div>
-        <label>Headphones</label>
-      </div>
 
-      <div className="content-itens">
-        <div className="itens">
-          <img src={shoes} alt="Tênis" />
+        <div className="content-itens">
+          <div className="itens">
+            <img src={hadfone} alt="Headphones" />
+          </div>
+          <label>Headphones</label>
         </div>
-        <label>Tênis</label>
+
+        <div className="content-itens">
+          <div className="itens">
+            <img src={shoes} alt="Tênis" />
+          </div>
+          <label>Tênis</label>
+        </div>
       </div>
-    </div>
-  </ColecaoStaled>
- );
+    </ColecaoStaled>
+  );
 }
 
 export default Colecao
