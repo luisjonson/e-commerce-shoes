@@ -6,3 +6,9 @@ export const API = axios.create({
     //     'Content-Type': 'application/json'
     // }
 })
+
+
+export const APIBACKEND = axios.create({
+    baseURL: 'http://localhost:3000',
+})
+
