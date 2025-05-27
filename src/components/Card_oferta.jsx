@@ -4,14 +4,10 @@ import Secondary_button from './button/Secondary_button';
 import collection from '../assets/collection-3.png'
 
 const Card_ofertaStyled = styled.div`
-   margin-bottom: 40px;
-   display: flex;
-   justify-content: space-between;
-   flex-direction: row;
    margin: 0 auto;
    & .conteudo{
-     width: 202.2px;
-     height: 125.5px;
+     width: 250px;
+     height: 150px;
      background-color: var(--color-surface-light);
      border-radius: 8px;
      position: relative;
@@ -20,7 +16,7 @@ const Card_ofertaStyled = styled.div`
         width: 76.5px;
         height: 24px;
         position: absolute;
-        bottom: 9px;
+        bottom: 10px;
         left: 10px;
         background-color: var(  --light-gray-3);
         color: var(--primary);
@@ -29,8 +25,8 @@ const Card_ofertaStyled = styled.div`
   }
   
   & img{
-    width: 202px;
-    height: 93.5px;
+    width: 100%;
+    height: 80%;
   }
 `
 const Card_oferta = (

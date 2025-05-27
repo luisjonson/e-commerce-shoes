@@ -15,12 +15,12 @@ const ProdutoStyled = styled.div`
     width: 85%;
 
     & .content-filtro{
-      height: 15vh;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap
-    }
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap
+  }
 
     & .filtro{
       display: flex;

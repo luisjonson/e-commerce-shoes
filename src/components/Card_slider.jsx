@@ -21,7 +21,6 @@ const Card_sliderConteiner = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: blue; */
     font-size: 20px;
     & .descricao img{
       position: absolute;
