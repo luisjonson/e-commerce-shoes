@@ -2,60 +2,61 @@ import styled from 'styled-components'
 import Tiket_oferta from './Tiket_oferta'
 
 const CardProdutoStyled = styled.div`
-    border-radius: 4px;
-    margin: 0;
-
-    & .content{
-        padding-top:1px;
-        width: 146px;
-        height: 160.5px;
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    .content{
+        width: 100%;
+        height: 200px;
         background-color: var(--white);
         display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        &.content img{
+        flex-direction: column;
+        /* align-items: center; */
+        img {
+            margin: 0 auto;
             object-fit: contain;
-            width: 100%;
+            width: 90%;
             height: 80%;
+            padding: 10px;
         }
     }
 
-    & .informacao {
-        padding-left: 5px;
-        margin: 0;
-        margin-right: 36rem;
-            word-wrap: break-word;
-        & #tipo{
+    .informacao {
+        padding: 0 5px;
+        word-wrap: break-word;
+
+        #tipo {
             margin: 0;
             color: var(--light-gray);
         }
-        
-        &.informacao h3{
+    
+        h3 {
             font-size: 12px;
             color: var(--dark-gray-2-rgba);
         }
-    
-        & .valor{
-            /* gap: 0.5rem; */
+        
+        .valor {
             display: flex;
             align-items: flex-end;
             gap: 10px;
-            &.valor .descoto{
+    
+
+            .descoto {
                 text-decoration: line-through;
-                font-size: .80rem;
+                font-size: 0.8rem;
                 color: var(--light-gray);
             }
-        
-            &.valor .valordesconto{
+
+            .valordesconto {
                 font-size: 1rem;
                 font-weight: bold;
                 color: var(--dark-gray);
             }
         }
     }
-    
-`
+`;
 
 const CardProduto = ({ desconto, className, image ,category ,title, price, alt}) => {
     
@@ -70,7 +71,7 @@ const CardProduto = ({ desconto, className, image ,category ,title, price, alt})
                 <h3>{title}</h3>
                 <div className='valor'>
                     <p className='descoto'> ${price}</p>
-                    <p className='valordesconto'>$100</p>
+                    <p className='valordesconto'>${price}</p>
                 </div>
             </div>
         </CardProdutoStyled>

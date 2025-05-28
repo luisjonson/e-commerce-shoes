@@ -13,21 +13,23 @@ const HomeStaled = styled.div`
     padding-top: 100px;
     display: flex;
     justify-content: center;
-    & .destaques-container{
+    .destaques-container{
       display: flex;
       flex-direction: column;
-      & .titulo {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
       
-      & .cards-container {
+      .cards-container {
         display: flex;
         flex-direction: row;
         gap: 30px;
         flex-wrap: wrap;
       }
+
+      /* .cards-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+        } */
     }
   }
 
@@ -41,6 +43,29 @@ const HomeStaled = styled.div`
   
   & .swiper-button-next{
     color: var(--primary);
+  }
+
+
+  .section-destaque {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-bottom: 30px;
+    width: 80%;
+    margin: 0 auto; 
+    padding-bottom: 50px;
+    
+    ul{
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 9px;
+    }
+    ul div{
+      width:calc(25% -15px);
+      border-radius: 8px;
+    }
   }
 
 `
@@ -58,7 +83,7 @@ function Home() {
   }, []);
 
   return (
-    <HomeStaled>
+    <HomeStaled >
       <Carousel settings={{
         slidesPerView: 1,
         spaceBetween: 20,
@@ -73,6 +98,7 @@ function Home() {
         <Card_slider />
         <Card_slider />
       </Carousel>
+      {produtos.length > 0 && (
       <section className="destaques">
         <div className="destaques-container">
           <h4 className="titulo">Coleções em destaque</h4>
@@ -83,18 +109,21 @@ function Home() {
           </div>
         </div>
       </section>
+      )}
+
       <Colecao />
 
-
       {produtos.length > 0 && (
-        <section className="destaques">
-          <h4 className="titulo">Produtos em destaque</h4>
-          <div className='cards-container'>
+        <section className='section-destaque'>
+          <h4 className='titulo'>Produtos em destaque</h4>
+          <ul>
             {produtos.map((produto) => (
-              <CardProduto key={produto.id} image={produto.image} category={produto.category} title={produto.title}
-                price={produto.price} alt={produto.title} />
+              <div key={produto.id}>
+                <CardProduto desconto='100' image={produto.image} category={produto.category} title={produto.title}
+                  price={produto.price} alt={produto.title} />
+              </div>
             ))}
-          </div>
+          </ul>
         </section>
       )}
 

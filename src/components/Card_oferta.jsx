@@ -12,7 +12,14 @@ const Card_ofertaStyled = styled.div`
      border-radius: 8px;
      position: relative;
      overflow: hidden;  
-      & .primary{
+
+      .tiket{
+        position: absolute;
+        bottom: 114px;
+        left: 5px;
+      }
+
+      .primary{
         width: 76.5px;
         height: 24px;
         position: absolute;
@@ -26,20 +33,21 @@ const Card_ofertaStyled = styled.div`
   
   & img{
     width: 100%;
-    height: 80%;
+    height: 100%;
   }
 `
 const Card_oferta = (
   {
-    oferta = 30,
-    alt = 'Hadfone'
+    oferta,
+    alt,
+    img 
   }
 ) => {
   return (
     <Card_ofertaStyled >
       <div className="conteudo">
-        <Tiket_oferta valor_oferta={oferta} />
-        <img src={collection} alt={alt}></img>
+        <Tiket_oferta className='tiket' valor_oferta={oferta} />
+        <img src={img} alt={alt}></img>
         <Secondary_button className='primary'>Comprar</Secondary_button>
       </div>
     </Card_ofertaStyled>

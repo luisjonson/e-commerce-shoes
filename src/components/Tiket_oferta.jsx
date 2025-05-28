@@ -18,9 +18,9 @@ const Tiket_ofertaStyled = styled.div`
   `
 
 
-function Tiket_oferta({ valor_oferta }) {
+function Tiket_oferta({ valor_oferta , className}) {
   return (
-    <Tiket_ofertaStyled>
+    <Tiket_ofertaStyled className={className}>
       <p>{valor_oferta}% OFF</p>
     </Tiket_ofertaStyled>
   )
