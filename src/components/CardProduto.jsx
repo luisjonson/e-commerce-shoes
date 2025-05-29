@@ -13,7 +13,6 @@ const CardProdutoStyled = styled.div`
         background-color: var(--white);
         display: flex;
         flex-direction: column;
-        /* align-items: center; */
         img {
             margin: 0 auto;
             object-fit: contain;

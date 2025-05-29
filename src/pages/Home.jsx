@@ -33,18 +33,17 @@ const HomeStaled = styled.div`
     }
   }
 
-  & .swiper-pagination-bullet-active{
+  .swiper-pagination-bullet-active{
     background-color: var(--primary);
   }
 
-  & .swiper-button-prev{
+  .swiper-button-prev{
     color: var(--primary);
   }
   
-  & .swiper-button-next{
+  .swiper-button-next{
     color: var(--primary);
   }
-
 
   .section-destaque {
     display: flex;
@@ -62,6 +61,7 @@ const HomeStaled = styled.div`
       gap: 15px;
       margin-top: 9px;
     }
+    
     ul div{
       width:calc(25% -15px);
       border-radius: 8px;
@@ -84,38 +84,48 @@ function Home() {
 
   return (
     <HomeStaled >
-      <Carousel settings={{
-        slidesPerView: 1,
-        spaceBetween: 20,
-        navigation: true,
-        pagination: { clickable: false },
-        loop: true
-      }}>
-        <Card_slider />
-        <Card_slider />
-        <Card_slider />
-        <Card_slider />
-        <Card_slider />
-        <Card_slider />
-      </Carousel>
+
       {produtos.length > 0 && (
-      <section className="destaques">
-        <div className="destaques-container">
+        <Carousel settings={{
+          slidesPerView: 1,
+          spaceBetween: 20,
+          navigation: true,
+          pagination: { clickable: false },
+          loop: true
+        }}>
+
+          {produtos.filter((_, id) => id < 4).map((produto) => (
+            <div key={produto.id}>
+              <Card_slider
+                text={produto.title}
+                titulo='Queima de estoque Nike'
+                descricao='Consequat culpa exercitation mollit nisi excepteur do tempor laboris eiusmod irure consectetur.'
+                imag1={produto.image}
+                imag2={produto.image}
+              />
+            </div>
+          ))}
+        </Carousel>
+      )}
+
+      {produtos.length > 0 && (
+        <section className="section-destaque">
           <h4 className="titulo">Coleções em destaque</h4>
-          <div className='cards-container'>
-            <Card_oferta />
-            <Card_oferta />
-            <Card_oferta />
-          </div>
-        </div>
-      </section>
+          <ul >
+            {produtos.filter((_, id) => id < 3).map((produto) => (
+              <div key={produto.id}>
+                <Card_oferta oferta={produto.price} img={produto.image} alt={produto.title} />
+              </div>
+            ))}
+          </ul>
+        </section>
       )}
 
       <Colecao />
 
       {produtos.length > 0 && (
         <section className='section-destaque'>
-          <h4 className='titulo'>Produtos em destaque</h4>
+          <h4 className='titulo'>Produtos em alta</h4>
           <ul>
             {produtos.map((produto) => (
               <div key={produto.id}>
