@@ -23,8 +23,9 @@ const CardProdutoStyled = styled.div`
 
     .informacao {
         word-wrap: break-word;
-        padding: 5px;
-        
+        flex-wrap: wrap;
+        margin: .3rem;
+        padding-bottom: .5rem;
         #tipo {
             margin: 0;
             color: var(--light-gray);
@@ -57,8 +58,8 @@ const CardProdutoStyled = styled.div`
     
     .card{
        border-radius: 4px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+       transition: transform 0.3s ease, box-shadow 0.3s ease;
+       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .card:hover {

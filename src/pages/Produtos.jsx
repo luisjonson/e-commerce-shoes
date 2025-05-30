@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import CheckboxLabel from '../components/checkboxLabel'
 import SelectMenu from '../components/SelectMenu'
 import CardProduto from '../components/CardProduto'
-import { Genero } from '../ultis/Genero'
+import { Generos } from '../ultis/Generos'
+import { Estados } from '../ultis/Estados'
 import { useEffect, useState } from 'react'
 import { API } from '../services';
 
@@ -31,7 +32,8 @@ const ProdutoStyled = styled.div`
         margin-bottom: 2vh;
         background-color: var(--white);
         h3{
-          margin-bottom:10px;
+          margin-top:  10px;
+          margin-bottom:  10px;
         }
       }
 
@@ -59,8 +61,6 @@ const Produtos = () => {
     buscarProdutos();
   }, []);
 
-  console.log(produtos)
-
   return (
     <ProdutoStyled>
       <div className="content">
@@ -77,13 +77,21 @@ const Produtos = () => {
           <div id='categoria-filtro'>
             <h3>Gênero</h3>
             <CheckboxLabel>
-              <label>{Genero.MASCULINO}</label>
+              <label>{Generos.MASCULINO}</label>
             </CheckboxLabel>
             <CheckboxLabel>
-              <label>{Genero.FEMININO}</label>
+              <label>{Generos.FEMININO}</label>
             </CheckboxLabel>
             <CheckboxLabel>
-              <label>{Genero.UNISEX}</label>
+              <label>{Generos.UNISEX}</label>
+            </CheckboxLabel>
+
+            <h3>Estado</h3>
+            <CheckboxLabel>
+              <label>{Estados.NOVO}</label>
+            </CheckboxLabel>
+            <CheckboxLabel>
+              <label>{Estados.USADO}</label>
             </CheckboxLabel>
           </div>
 
