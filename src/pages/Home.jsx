@@ -49,7 +49,6 @@ const HomeStaled = styled.div`
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    border-bottom: 30px;
     width: 80%;
     margin: 0 auto; 
     padding-bottom: 50px;
@@ -60,11 +59,6 @@ const HomeStaled = styled.div`
       flex-wrap: wrap;
       gap: 15px;
       margin-top: 9px;
-    }
-    
-    ul div{
-      width:calc(25% -15px);
-      border-radius: 8px;
     }
   }
 

@@ -3,45 +3,63 @@ import CheckboxLabel from '../components/checkboxLabel'
 import SelectMenu from '../components/SelectMenu'
 import CardProduto from '../components/CardProduto'
 import { Genero } from '../ultis/Genero'
-// import genero from '../ultis/Genero.jsx'
+import { useEffect, useState } from 'react'
+import { API } from '../services';
 
 const ProdutoStyled = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  /* background-color: red; */
 
-  & .content {
+  .content {
     width: 85%;
-
-    & .content-filtro{
-    height: 15vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap
-  }
-
-    & .filtro{
+    .content-filtro{
+      height: 15vh;
       display: flex;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      
-      & #categoria-filtro{
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .filtro{
+      display: flex;
+      gap:10px;
+      padding: 5px;
+      #categoria-filtro{
         width: 308px;
         border: 15px solid var(--white);
         margin-bottom: 2vh;
         background-color: var(--white);
-
-        & h3{
+        h3{
           margin-bottom:10px;
+        }
+      }
+
+      .produto{
+        width: 100%;
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
         }
       }
     }
   }
 `
 const Produtos = () => {
+
+  const [produtos, setProdutos] = useState([]);
+
+  async function buscarProdutos() {
+    const request = await API.get('/products')
+    setProdutos(request.data);
+  }
+
+  useEffect(() => {
+    buscarProdutos();
+  }, []);
+
+  console.log(produtos)
 
   return (
     <ProdutoStyled>
@@ -68,10 +86,21 @@ const Produtos = () => {
               <label>{Genero.UNISEX}</label>
             </CheckboxLabel>
           </div>
-          <CardProduto className='cardProduto' desconto={10}></CardProduto>
-          <CardProduto desconto={10}></CardProduto>
-          <CardProduto desconto={10}></CardProduto>
-          <CardProduto desconto={10}></CardProduto>
+
+          <div className='produto'>
+            <ul>
+              {produtos.length > 0 && produtos.map((prod) => (
+                <div key={prod.id}>
+                  <CardProduto
+                    desconto={prod.price}
+                    image={prod.image}
+                    title={prod.title}
+                    price={prod.price}>
+                  </CardProduto>
+                </div>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </ProdutoStyled>

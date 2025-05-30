@@ -3,16 +3,15 @@ import Tiket_oferta from './Tiket_oferta'
 
 const CardProdutoStyled = styled.div`
     width: 290px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    
     .content{
         width: 100%;
         height: 200px;
         background-color: var(--white);
         display: flex;
         flex-direction: column;
+        padding-bottom: .3rem;
+         border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
         img {
             margin: 0 auto;
             object-fit: contain;
@@ -23,9 +22,9 @@ const CardProdutoStyled = styled.div`
     }
 
     .informacao {
-        padding: 0 5px;
         word-wrap: break-word;
-
+        padding: 5px;
+        
         #tipo {
             margin: 0;
             color: var(--light-gray);
@@ -55,22 +54,36 @@ const CardProdutoStyled = styled.div`
             }
         }
     }
+    
+    .card{
+       border-radius: 4px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+   
 `;
 
 const CardProduto = ({ desconto, className, image ,category ,title, price, alt}) => {
     
     return (
-        <CardProdutoStyled className={className}>
-            <div className='content'>
-                {desconto && <Tiket_oferta valor_oferta={desconto} />}
-                <img src={image} alt={alt}></img>
-            </div>
-            <div className="informacao">
-                <p id='tipo'>{category}</p>
-                <h3>{title}</h3>
-                <div className='valor'>
-                    <p className='descoto'> ${price}</p>
-                    <p className='valordesconto'>${price}</p>
+        <CardProdutoStyled>
+            <div className='card'>
+                <div className='content'>
+                    {desconto && <Tiket_oferta valor_oferta={desconto} />}
+                    <img src={image} alt={alt}></img>
+                </div>
+                <div className="informacao">
+                    <p id='tipo'>{category}</p>
+                    <h3>{title}</h3>
+                    <div className='valor'>
+                        <p className='descoto'> ${price}</p>
+                        <p className='valordesconto'>${price}</p>
+                    </div>
                 </div>
             </div>
         </CardProdutoStyled>
