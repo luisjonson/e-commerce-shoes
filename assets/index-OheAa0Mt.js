@@ -313,7 +313,7 @@ Please change the parent <Route path="${w}"> to <Route path="${w==="/"?"*":`${w}
         img {
             margin: 0 auto;
             object-fit: contain;
-            width: 90%;
+            width: 100%;
             height: 80%;
             padding: 10px;
         }
