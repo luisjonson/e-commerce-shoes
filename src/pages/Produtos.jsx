@@ -75,24 +75,63 @@ const Produtos = () => {
 
         <div className='filtro'>
           <div id='categoria-filtro'>
+            {/* <h3>Cartegoria</h3>
+            {produtos.length > 0 && produtos.map((produto)=>(
+              <div key={produto.id}>
+                <CheckboxLabel>
+                  <label>{produto.category}</label>
+                </CheckboxLabel>
+              </div>
+            ))} */}
+
+            <label>Filtrar por</label>
+           <hr style={{ border: '1px solid #ccc', margin: '20px 0' }} />
+            <h3>Marca</h3>
+            <ul>
+                <CheckboxLabel>
+                  <label >Adidas</label>
+                </CheckboxLabel>
+                <CheckboxLabel>
+                  <label >Nike</label>
+                </CheckboxLabel>
+                <CheckboxLabel>
+                  <label >Polo</label>
+                </CheckboxLabel>
+                <CheckboxLabel>
+                  <label >Handara</label>
+                </CheckboxLabel>
+            </ul>
+            <h3>Categoria</h3>
+            <ul>
+                <CheckboxLabel>
+                  <label >Camisa</label>
+                </CheckboxLabel>
+                <CheckboxLabel>
+                  <label >Calça</label>
+                </CheckboxLabel>
+                <CheckboxLabel>
+                  <label >Eletrônico</label>
+                </CheckboxLabel>
+                <CheckboxLabel>
+                  <label >Calçados</label>
+                </CheckboxLabel>
+            </ul>
             <h3>Gênero</h3>
-            <CheckboxLabel>
-              <label>{Generos.MASCULINO}</label>
-            </CheckboxLabel>
-            <CheckboxLabel>
-              <label>{Generos.FEMININO}</label>
-            </CheckboxLabel>
-            <CheckboxLabel>
-              <label>{Generos.UNISEX}</label>
-            </CheckboxLabel>
+            <ul>
+              {Object.entries(Generos).map(([key, value]) => (
+                <CheckboxLabel key={key}>
+                  <label >{value}</label>
+                </CheckboxLabel>
+              ))}
+            </ul>
 
             <h3>Estado</h3>
-            <CheckboxLabel>
-              <label>{Estados.NOVO}</label>
-            </CheckboxLabel>
-            <CheckboxLabel>
-              <label>{Estados.USADO}</label>
-            </CheckboxLabel>
+            {Object.entries(Estados).map(([key, value]) => (
+              <CheckboxLabel key={key}>
+                <label >{value}</label>
+              </CheckboxLabel>
+            ))}
+
           </div>
 
           <div className='produto'>
@@ -103,7 +142,9 @@ const Produtos = () => {
                     desconto={prod.price}
                     image={prod.image}
                     title={prod.title}
-                    price={prod.price}>
+                    price={prod.price}
+                    category={prod.category}
+                  >
                   </CardProduto>
                 </div>
               ))}
