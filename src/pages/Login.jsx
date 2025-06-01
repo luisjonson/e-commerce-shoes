@@ -43,7 +43,7 @@ const Login = () => {
     <LoginStyled>
       {msgError && <MsgError msg={msgError} />}
       <form onSubmit={handerSubimit}>
-        <FormCard>
+        <FormCard title='Login'>
           <InputWithLabel 
             label="Login"
             type="email" 

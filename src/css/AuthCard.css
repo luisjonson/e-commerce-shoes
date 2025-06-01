@@ -1,14 +1,14 @@
+
 .auth-card {
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin: 2rem auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .auth-card:hover {
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
@@ -26,7 +26,7 @@
 }
 
 .auth-card-body {
-  padding: 2rem;
+  padding: 0 2rem 2rem;
 }
 
 .auth-card-footer {
