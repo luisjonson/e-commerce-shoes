@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import FormCard from "../components/FormCard";
 import InputWithLabel from "../components/InputWithLabel";
 import Primary_button from '../components/button/Primary_button';
