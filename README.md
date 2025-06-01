@@ -29,3 +29,28 @@ If you are developing a production application, we recommend using TypeScript wi
 
 **Bibliotecara ultilizado no carocel**
 ## npm install swiper
+
+
+⚠️ Quer alterar a cor interna (fill) do SVG?
+Você precisa importar o SVG como componente (inline), assim:
+
+1. Instale o plugin SVGR no seu projeto Vite:
+Se estiver usando Vite, instale:
+
+npm i -D vite-plugin-svgr
+
+Forma certa de importa o svg
+import Logo from '../assets/logo-header.svg?react'
+
+
+configuração do vite.config.js
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import svgr from 'vite-plugin-svgr';
+
+// https://vite.dev/config/
+export default defineConfig({
+  base: '/e-commerce-shoes',
+  plugins: [react(), svgr()],
+})
