@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
+import { useState } from 'react';
 import FormCard from "../components/FormCard"
 import InputWithLabel from "../components/InputWithLabel"
 import Primary_button from "../components/button/Primary_button";
 import styled from 'styled-components';
+import auth from "../services/auth";
+import MsgError from '../components/msg_alert/MsgWarn';
+
 
 const LoginStyled = styled.div`
   & .acesso{
@@ -14,17 +18,61 @@ const LoginStyled = styled.div`
   }
 `
 const Login = () => {
+
+  const [login, setLogin] = useState("")
+  const [senha, setSenha] = useState("")
+  const [termo, setTermo] = useState(false)
+  const [msgError, setMsgError] = useState('')
+
+  const handerSubimit = async (e) => {
+    e.preventDefault();
+    const user = {
+      login,
+      senha,
+      termo
+    }
+    
+    try {
+      const dados = await auth.login(user)
+    } catch (error) {
+      setMsgError(error.response.data.erro)
+    }
+  }
+
   return (
     <LoginStyled>
-      <FormCard title="Login">
-        <InputWithLabel label="Login" type="email" required/>
-        <InputWithLabel label="Senha" type="password" required/>
-        <div className="acesso">
-          <InputWithLabel label="Lembra meu acesso" type="checkbox"></InputWithLabel>
-          <NavLink>esqueceu sanha</NavLink>
-        </div>
-        <Primary_button type='submit' className='primary'>Entrar</Primary_button>
-      </FormCard>
+      {msgError && <MsgError msg={msgError} />}
+      <form onSubmit={handerSubimit}>
+        <FormCard>
+          <InputWithLabel 
+            label="Login"
+            type="email" 
+            value={login} 
+            onChange={e => setLogin(e.target.value)} 
+            required 
+          />
+
+          <InputWithLabel 
+            label="Senha" 
+            type="password" 
+            value={senha} 
+            onChange={e => setSenha(e.target.value)} 
+            required 
+          />
+
+          <div className="acesso">
+            <InputWithLabel 
+              label="Lembra meu acesso" 
+              type="checkbox" 
+              value={termo} 
+              onChange={e => setTermo(e.target.checked)}
+            />
+
+            <NavLink>esqueceu sanha</NavLink>
+          </div>
+          <Primary_button type='submit' className='primary'>Entrar</Primary_button>
+        </FormCard>
+      </form>
     </LoginStyled>
   )
 }

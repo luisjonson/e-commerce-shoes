@@ -16,19 +16,16 @@ const InputWithLabel = ({
   return (
     <div className={`input-group ${className}`}>
       {isCheckbox ? (
-        <CheckboxLabel value={value} onChange={onChange} required >
-          <label  >
-            {label}
-          </label>
+        <CheckboxLabel value={value} onChange={onChange} required={required}>
+          <label>{label}</label>
         </CheckboxLabel>
       ) : (
         <>
-          <label  className="input-label" onChange={onChange}>
+          <label className="input-label">
             {label}
             {required && <span className="required-asterisk">*</span>}
           </label>
           <input
-            // id={inputId}
             type={type}
             value={value}
             onChange={onChange}
