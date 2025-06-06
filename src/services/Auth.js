@@ -2,8 +2,7 @@ import { APIBACKEND } from ".";
 
 const login = async (user) => {
     try {
-        const dados = await APIBACKEND.post('/login', user);
-        return JSON.stringify(dados.data)
+        return await APIBACKEND.post('/login', user);
     } catch (error) {
         throw error;
     }
