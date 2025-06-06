@@ -34,15 +34,8 @@ const Cadastro = () => {
     }
     try {
       const dados = await CadastroUserService.salvar(user)
-        .then((response) => {
           setMsgSucess(dados.message);
           setMsgError('');
-        }).catch((error) => {
-          if (error.status === 403) {
-            setMsgError('Acesso não autorizado');
-          }
-        });
-
     } catch (error) {
       const msg = error.response.data.error;
       setMsgError(msg);
