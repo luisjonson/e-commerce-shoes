@@ -2,12 +2,13 @@ import styled from 'styled-components'
 import CheckboxLabel from '../components/checkboxLabel'
 import SelectMenu from '../components/SelectMenu'
 import CardProduto from '../components/CardProduto'
+import categoria from '../services/Categoria'
+import marca from '../services/Marca'
 import { Generos } from '../utils/Generos'
 import { Estados } from '../utils/Estados'
 import { capitalizeWords } from '../utils/Utils'
 import { useEffect, useState } from 'react'
 import { API } from '../services';
-import categoria from '../services/Categoria'
 
 const ProdutoStyled = styled.div`
   width: 100%;
@@ -54,6 +55,7 @@ const Produtos = () => {
 
   const [produtos, setProdutos] = useState([]);
   const [categorais, setCategorias] = useState([]);
+  const [marcas, setMarcas] = useState([]);
 
   async function buscarProdutos() {
     const request = await API.get('/products')
@@ -66,11 +68,15 @@ const Produtos = () => {
     setCategorias(categorais.data);
   }
 
-
+   async function buscarMarca() {
+    const marcas = await marca.findAll();
+    setMarcas(marcas.data);
+  }
 
   useEffect(() => {
     buscarProdutos();
     buscarCategoria();
+    buscarMarca();
   }, []);
 
   return (
@@ -84,42 +90,25 @@ const Produtos = () => {
             <SelectMenu></SelectMenu>
           </div>
         </div>
-        <button onClick={buscarCategoria}> teste </button>
         <div className='filtro'>
           <div id='categoria-filtro'>
-            {/* <h3>Cartegoria</h3>
-            {produtos.length > 0 && produtos.map((produto)=>(
-              <div key={produto.id}>
-                <CheckboxLabel>
-                  <label>{produto.category}</label>
-                </CheckboxLabel>
-              </div>
-            ))} */}
-
-            <label>Filtrar por</label>
+           <label>Filtrar por</label>
            <hr style={{ border: '1px solid #ccc', margin: '20px 0' }} />
             <h3>Marca</h3>
-            <ul>
-                <CheckboxLabel>
-                  <label >Adidas</label>
+            {marcas.length > 0 && marcas.map((marca)=> (
+                <CheckboxLabel key={marca.numsequencial}>
+                  <label >{capitalizeWords(marca.nome)}</label>
                 </CheckboxLabel>
-                <CheckboxLabel>
-                  <label >Nike</label>
-                </CheckboxLabel>
-                <CheckboxLabel>
-                  <label >Polo</label>
-                </CheckboxLabel>
-                <CheckboxLabel>
-                  <label >Handara</label>
-                </CheckboxLabel>
-            </ul>
+              )
+            )}
+
             <h3>Categoria</h3>
-              {categorais.length > 0 && categorais.map((categoria) =>(
-                  <CheckboxLabel key={categoria.numsequencial}>
-                    <label >{capitalizeWords(categoria.nome)}</label>
-                  </CheckboxLabel>
-                ) 
-              )}
+            {categorais.length > 0 && categorais.map((categoria) =>(
+                <CheckboxLabel key={categoria.numsequencial}>
+                  <label >{capitalizeWords(categoria.nome)}</label>
+                </CheckboxLabel>
+              ) 
+            )}
 
             <h3>Gênero</h3>
             <ul>
