@@ -5,7 +5,8 @@ import Card_slider from '../components/Card_slider';
 import CardProduto from '../components/CardProduto';
 import Carousel from '../components/Carousel';
 import Colecao from '../components/Colecao';
-import { API } from '../services';
+import produtosServer from '../services/ProdutoServer';
+import { porcentagemDesconto } from '../utils/Utils';
 
 const HomeStaled = styled.div`
   width: 100%;
@@ -68,8 +69,8 @@ function Home() {
   const [produtos, setProdutos] = useState([]);
 
   async function buscarProdutos() {
-    const request = await API.get('/products')
-    setProdutos(request.data);
+    const request = await produtosServer.findAll()
+    setProdutos(request.data.data);
   }
 
   useEffect(() => {
@@ -122,9 +123,15 @@ function Home() {
           <h4 className='titulo'>Produtos em alta</h4>
           <ul>
             {produtos.map((produto) => (
-              <div key={produto.id}>
-                <CardProduto desconto='100' image={produto.image} category={produto.category} title={produto.title}
-                  price={produto.price} alt={produto.title} />
+              <div key={produto.numsequencial}>
+                <CardProduto  
+                  desconto={ produto.precoPromocional && porcentagemDesconto(produto.preco , produto.precoPromocional)}
+                  image={produto.linkImagem} 
+                  category={produto.category}
+                  title={produto.titulo}
+                  price={produto.preco}
+                  valorComDesconto={produto.precoPromocional}
+                />
               </div>
             ))}
           </ul>

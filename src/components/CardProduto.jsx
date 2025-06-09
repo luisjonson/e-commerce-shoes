@@ -77,15 +77,19 @@ const CardProduto = ({ desconto, image ,category ,title, price, valorComDesconto
         <CardProdutoStyled>
             <div className='card'>
                 <div className='content'>
-                    {desconto && <Tiket_oferta valor_oferta={desconto} />}
+                    {parseFloat(valorComDesconto) > 0 && ( <Tiket_oferta valor_oferta={desconto} />)}
                     <img src={image} alt={alt}></img>
                 </div>
                 <div className="informacao">
                     <p id='tipo'>{category}</p>
                     <h3>{title}</h3>
                     <div className='valor'>
-                        <p className='descoto'> ${price}</p>
-                        <p className='valordesconto'>${valorComDesconto}</p>
+                        {parseFloat(valorComDesconto) > 0 && (
+                            <p className='descoto'>${price}</p>
+                        )}
+                        {parseFloat(valorComDesconto) > 0 
+                        ? (<p className='valordesconto'>${valorComDesconto} </p>) 
+                        : (<p className='valordesconto'>${price}</p>)}
                     </div>
                 </div>
             </div>
