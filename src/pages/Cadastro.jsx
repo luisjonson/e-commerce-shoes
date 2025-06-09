@@ -4,7 +4,7 @@ import InputWithLabel from "../components/InputWithLabel";
 import Primary_button from '../components/button/Primary_button';
 import MsgError from '../components/msg_alert/MsgWarn';
 import MsgSucess from '../components/msg_alert/MsgSucess';
-import CadastroUserService  from '../services/CadastroUser';
+import CadastroUserService  from '../services/UserServer';
 
 const Cadastro = () => {
 

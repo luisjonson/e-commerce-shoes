@@ -71,7 +71,7 @@ const CardProdutoStyled = styled.div`
    
 `;
 
-const CardProduto = ({ desconto, className, image ,category ,title, price, alt}) => {
+const CardProduto = ({ desconto, image ,category ,title, price, valorComDesconto, alt}) => {
     
     return (
         <CardProdutoStyled>
@@ -85,7 +85,7 @@ const CardProduto = ({ desconto, className, image ,category ,title, price, alt})
                     <h3>{title}</h3>
                     <div className='valor'>
                         <p className='descoto'> ${price}</p>
-                        <p className='valordesconto'>${price}</p>
+                        <p className='valordesconto'>${valorComDesconto}</p>
                     </div>
                 </div>
             </div>

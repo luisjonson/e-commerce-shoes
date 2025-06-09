@@ -1,14 +1,14 @@
 import styled from 'styled-components'
+import { useEffect, useState } from 'react'
+import { Estados } from '../utils/Estados'
+import CardProduto from '../components/CardProduto'
+import { Generos } from '../utils/Generos'
 import CheckboxLabel from '../components/checkboxLabel'
 import SelectMenu from '../components/SelectMenu'
-import CardProduto from '../components/CardProduto'
-import categoria from '../services/Categoria'
-import marca from '../services/Marca'
-import { Generos } from '../utils/Generos'
-import { Estados } from '../utils/Estados'
-import { capitalizeWords } from '../utils/Utils'
-import { useEffect, useState } from 'react'
-import { API } from '../services';
+import categoriaServer from '../services/CategoriaServer'
+import marcaServer from '../services/MarcaServer'
+import produtosServer from '../services/ProdutoServer'
+import { capitalizeWords, porcentagemDesconto} from '../utils/Utils'
 
 const ProdutoStyled = styled.div`
   width: 100%;
@@ -58,18 +58,18 @@ const Produtos = () => {
   const [marcas, setMarcas] = useState([]);
 
   async function buscarProdutos() {
-    const request = await API.get('/products')
-    setProdutos(request.data);
+    const request = await produtosServer.findAll()
+    console.log(request.data.data)
+    setProdutos(request.data.data);
   }
 
   async function buscarCategoria() {
-
-    const categorais = await categoria.findAll();
+    const categorais = await categoriaServer.findAll();
     setCategorias(categorais.data);
   }
 
    async function buscarMarca() {
-    const marcas = await marca.findAll();
+    const marcas = await marcaServer.findAll();
     setMarcas(marcas.data);
   }
 
@@ -131,13 +131,14 @@ const Produtos = () => {
           <div className='produto'>
             <ul>
               {produtos.length > 0 && produtos.map((prod) => (
-                <div key={prod.id}>
+                <div key={prod.numsequencial}>
                   <CardProduto
-                    desconto={prod.price}
-                    image={prod.image}
-                    title={prod.title}
-                    price={prod.price}
+                    desconto={porcentagemDesconto(prod.preco , prod.precoPromocional)  }
+                    image={prod.linkImagem}
+                    title={prod.titulo}
+                    price={prod.preco}
                     category={prod.category}
+                    valorComDesconto={prod.precoPromocional}
                   >
                   </CardProduto>
                 </div>

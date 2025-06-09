@@ -4,7 +4,7 @@ import FormCard from "../components/FormCard"
 import InputWithLabel from "../components/InputWithLabel"
 import Primary_button from "../components/button/Primary_button";
 import styled from 'styled-components';
-import auth from "../services/Auth";
+import auth from "../services/AuthServer";
 import MsgError from '../components/msg_alert/MsgWarn';
 import MsgSucess from '../components/msg_alert/MsgSucess';
 import { useNavigate } from 'react-router-dom'
