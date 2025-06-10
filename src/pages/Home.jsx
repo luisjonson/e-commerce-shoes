@@ -89,17 +89,17 @@ function Home() {
           loop: true
         }}>
 
-          {produtos.filter((_, id) => id < 4).map((produto) => (
-            <div key={produto.id}>
+        {produtos.filter(produto => produto.queimaEstoque).map((produto) => (
+          <div key={produto.numsequencial}>
               <Card_slider
-                text={produto.title}
-                titulo='Queima de estoque Nike'
-                descricao='Consequat culpa exercitation mollit nisi excepteur do tempor laboris eiusmod irure consectetur.'
-                imag1={produto.image}
-                imag2={produto.image}
+                text={produto.titulo}
+                titulo={produto.titulo}
+                descricao={produto.descricao}
+                imag1={produto.linkImagem}
+                imag2={produto.linkImagem}
               />
-            </div>
-          ))}
+          </div>
+        ))}
         </Carousel>
       )}
 
@@ -107,9 +107,11 @@ function Home() {
         <section className="section-destaque">
           <h4 className="titulo">Coleções em destaque</h4>
           <ul >
-            {produtos.filter((_, id) => id < 3).map((produto) => (
-              <div key={produto.id}>
-                <Card_oferta oferta={produto.price} img={produto.image} alt={produto.title} />
+            {produtos.filter(prod => prod.queimaEstoque === true)
+            .slice(0,3)
+            .map((produto) => (
+              <div key={produto.numsequencial}>
+                <Card_oferta oferta={produto.preco} img={produto.linkImagem} alt={produto.titulo} />
               </div>
             ))}
           </ul>
