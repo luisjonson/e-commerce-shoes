@@ -36,8 +36,11 @@ const userLogado = user;
             <span>0</span>
           </div>
           <div id='userLogin'>
-             <img id='userFoto' src={userDefaut} alt="Imagem Usuário" />
-             {user ? <p>Bem-vindo, {user.userLogado.nome}</p> : <p>Não está logado</p>}
+            <img id='userFoto' src={userDefaut} alt="Imagem Usuário" />
+            <div id='user-inf'>
+              {user ? <p>{user.userLogado.nome}</p> : <p>Não está logado</p>}
+              {user && <p>{user.userLogado.email}</p>}
+            </div>
           </div>
         </div>
 

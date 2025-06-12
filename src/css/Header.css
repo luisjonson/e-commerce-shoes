@@ -99,5 +99,16 @@ input::placeholder {
 }
 #userLogin{
     display: flex;
-    gap: 5px;
+    gap: 10px;
+}
+
+#user-inf{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px;
+}
+
+#user-inf p{
+   margin: -5px;
 }
