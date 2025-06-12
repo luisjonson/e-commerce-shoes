@@ -1,35 +1,43 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo-header.svg'
 import carrinho from '../assets/mini-cart.svg'
 import search from '../assets/Search.svg'
-import { useNavigate } from 'react-router-dom';
+import userDefaut from '../assets/userDefaut.svg'
+import { useUser } from '../contexts/UserContext'
 import '../css/Header.css'
-import MsgSucess from './msg_alert/MsgSucess';
-import { useLocation } from 'react-router-dom';
+import MsgSucess from './msg_alert/MsgSucess'
+
 
 const Header = () => {
 const location = useLocation();
 const mensagem = location.state?.msg;
+const { user } = useUser();
+
+const userLogado = user;
 
   const navigate = useNavigate();
   const handleLogin = () => {
     navigate('login')
   }
   return (
-    <>
+  <div className='container'>
     { mensagem && <MsgSucess msg={mensagem}/>}
-      <div className='container'>
+      <div className='conteiner-header'>
         <div className='search'>
           <img src={logo} alt="Logo" />
           <div className="input-wrapper">
             <input type="text" placeholder="Pesquisar produto..." />
             <img id='icon-search' src={search} alt="Logo" />
           </div>
-          <NavLink to="cadastre">Cadastre-se</NavLink>
-          <button onClick={handleLogin}>Entrar</button>
+          <NavLink to="cadastre" >Cadastre-se</NavLink>
+          <button onClick={handleLogin} className='btn-primary'>Entrar</button>
           <div className="carrinho">
-            <img src={carrinho} alt="Carrinho" />
+            <img src={carrinho} alt="Carrinho" id='carrinho' />
             <span>0</span>
+          </div>
+          <div id='userLogin'>
+             <img id='userFoto' src={userDefaut} alt="Imagem Usuário" />
+             {user ? <p>Bem-vindo, {user.userLogado.nome}</p> : <p>Não está logado</p>}
           </div>
         </div>
 
@@ -42,8 +50,7 @@ const mensagem = location.state?.msg;
           </ul>
         </nav>
       </div>
-
-    </>
+    </div>
   )
 }
 

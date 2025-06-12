@@ -1,17 +1,22 @@
+.conteiner-header{
+    width: 80%;
+    margin: 0 auto;
+}
+
 .search {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    position: relative;
+    flex-wrap: wrap;
+    gap:30px;
 }
 
 .input-wrapper {
     position: relative;
     width: 100%;
-    /* max-width: 400px; */
     display: flex;
     justify-content: end;
+    min-width: 45px;
 }
 
 input::placeholder {
@@ -24,18 +29,18 @@ input::placeholder {
 .search #icon-search {
     width: 20px;
     right: 15px;
-    bottom: 0;
+    bottom: 10px;
     display: flex;
     justify-content: center;
     position: absolute;
     align-items: center;
-    pointer-events: none;
+    cursor: pointer;
 }
 
-/* BOTÃO ENTER */
 .search button { 
     width: 200px;
     height: 40px;
+    min-width: 100px;
     background-color: var(--primary);
     color: var(--light-gray-3);
     border-radius: 8px;
@@ -43,32 +48,33 @@ input::placeholder {
     cursor: pointer;
 }
 
-img {
-    width: 253px;
-    height: 44px;
-    color: red !important;
+#userFoto{
+    width: 40px;
 }
 
-.search .carrinho {
+.carrinho {
     display: flex;
+    justify-content: center;
     position: relative;
-    align-items: center;
-    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.carrinho img{
+    width: 30px;
 }
 
 .carrinho span {
-    top: 0px;
-    right: 97px;
-    width: 20px;
-    height: 20px;
-    display: flex;
+    width: 11px;
+    height: 12px;
+    right: -5px;
     cursor: pointer;
     font-size: 12px;
     border-radius: 50%;
     position: absolute;
-    color: var(--white);
-    align-items: center;
+    display:flex;
     justify-content: center;
+    align-items: center;
+    color: var(--white);
     background-color: var(--primary);
 }
 
@@ -77,6 +83,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .navegacao ul {
@@ -89,4 +96,8 @@ img {
 
 .navegacao ul li a.active{
     color: var(--dark-gray);
+}
+#userLogin{
+    display: flex;
+    gap: 5px;
 }

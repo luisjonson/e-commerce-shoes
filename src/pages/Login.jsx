@@ -1,13 +1,13 @@
-import { NavLink } from "react-router-dom";
 import { useState } from 'react';
-import FormCard from "../components/FormCard"
-import InputWithLabel from "../components/InputWithLabel"
-import Primary_button from "../components/button/Primary_button";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from 'styled-components';
-import auth from "../services/AuthServer";
+import FormCard from "../components/FormCard";
+import InputWithLabel from "../components/InputWithLabel";
+import Primary_button from "../components/button/Primary_button";
 import MsgError from '../components/msg_alert/MsgWarn';
-import MsgSucess from '../components/msg_alert/MsgSucess';
-import { useNavigate } from 'react-router-dom'
+import auth from "../services/AuthServer";
+import { useUser } from '../contexts/UserContext';
+import Cookies from 'js-cookie';
 
 
 const LoginStyled = styled.div`
@@ -26,6 +26,7 @@ const Login = () => {
   const [senha, setSenha] = useState("")
   const [termo, setTermo] = useState(false)
   const [msgError, setMsgError] = useState('')
+  const { login: setUserContext } = useUser();
 
   const handerSubimit = async (e) => {
     e.preventDefault();
@@ -36,7 +37,11 @@ const Login = () => {
     }
     
     try {
-      const dados = await auth.login(user)
+      await auth.login(user)
+      const dados = await auth.usuarioLogado()
+      Cookies.set('user', JSON.stringify({ userLogado }));
+      setUserContext(dados)
+
       navigate('/',{
         state:{msg: 'Login realizado com sucesso!'}
       })

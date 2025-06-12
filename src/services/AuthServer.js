@@ -8,6 +8,15 @@ const login = async (user) => {
     }
 }
 
+const usuarioLogado = async () => {
+    try {
+        return await APIBACKEND.get('/auth/usuario-logado')
+    } catch (error) {
+        throw error;
+    }
+}
+
 export default {
-    login
+    login,
+    usuarioLogado
 }
