@@ -99,8 +99,13 @@ input::placeholder {
 }
 #userLogin{
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
 }
+#userLogin#showMenu{
+    flex-direction: row;
+} 
 
 #user-inf{
     display: flex;
@@ -111,4 +116,16 @@ input::placeholder {
 
 #user-inf p{
    margin: -5px;
+}
+
+.hover-rotate {
+  width: 2vw;
+  height: 2vh;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: transform .4s ease;
+}
+
+.hover-rotate:hover {
+  transform: rotate(45deg);
 }
