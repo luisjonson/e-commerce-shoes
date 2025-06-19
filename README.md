@@ -15,7 +15,6 @@ If you are developing a production application, we recommend using TypeScript wi
 ## npm run dev 
 
 # extensões 
-
 ## Material Icon theme
 ## Simple React Snippets
 ## javaScript auto backticks
@@ -23,15 +22,13 @@ If you are developing a production application, we recommend using TypeScript wi
 
 # Biblioteca
 ## npm install styled-components
-## primereact 
-## primeflex 
-## primeicons
 
 **Bibliotecara ultilizado no carocel**
 ## npm install swiper
 
-
 # Utilizando o cookie no frontEnd 
 ### npm install js-cookie
 
+# ultilizando o axios 
+## npm install axios
 
