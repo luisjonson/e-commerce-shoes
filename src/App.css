@@ -31,6 +31,9 @@
   --light-gray-3-rgba: rgba(245, 245, 245, 1);
   --white-rgba: rgba(255, 255, 255, 1);
   --color-surface-light: rgba(216, 227, 242, 1);
+  --verde-calro: rgba(144, 238, 144, 0.6);
+  --amarelo-claro:rgba(255, 255, 153, 0.6);
+  --vermelho-suave: rgba(204, 0, 102, 0.5);
 
   --font-family-padrao: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -165,6 +168,10 @@ input:focus {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 5px;
+}
+
+button{
+   cursor: pointer;
 }
 
 button:hover{
