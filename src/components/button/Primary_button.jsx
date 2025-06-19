@@ -8,7 +8,7 @@ const Primary_buttonStaled = styled.button`
     background-color: var(--primary-rgba);
     color: var(--light-gray-3);
     border: none;
-    cursor: pointer;
+   
 `
 const Primary_button = ({type, children, style }) => {
     return (
