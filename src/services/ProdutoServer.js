@@ -1,12 +1,11 @@
 import { APIBACKEND } from ".";
 
 const findAll = async () => {
-    try {
-        return await APIBACKEND.get('/produtos');
-        
-    } catch (error) {
-        throw error;
-    }
+  return await APIBACKEND.get("/produtos");
 };
 
-export default {findAll}
+const criar = async (produto) => {
+  return await APIBACKEND.post("/produto", produto);
+};
+
+export default { findAll, criar };
