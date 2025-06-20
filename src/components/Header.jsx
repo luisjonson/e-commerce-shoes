@@ -3,22 +3,19 @@ import logo from '../assets/logo-header.svg'
 import carrinho from '../assets/mini-cart.svg'
 import search from '../assets/Search.svg'
 import userDefaut from '../assets/userDefaut.svg'
-import ingrenagem from '../assets/ingrenagem.svg'
 import { useUser } from '../contexts/UserContext'
 import '../css/Header.css'
 import MsgSucess from './msg_alert/MsgSucess'
-import HoverMenu from './HoverMenu'
-import { useState } from 'react'
 
 
 const Header = () => {
 const location = useLocation();
 const mensagem = location.state?.msg;
 const { user } = useUser();
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleMouseEnter = () => setShow(true);
-  const handleMouseLeave = () => setShow(false);
+  // const handleMouseEnter = () => setShow(true);
+  // const handleMouseLeave = () => setShow(false);
 
   // const userLogado = user;
   const navigate = useNavigate();
@@ -44,17 +41,18 @@ const { user } = useUser();
           <div id='userLogin'>
             <img id='userFoto' src={userDefaut} alt="Imagem Usuário" />
             <div id='user-inf'>
-              {user ? <p>{user.userLogado.nome}</p> : <p>Não está logado</p>}
-              {user && <p>{user.userLogado.email}</p>}
-              <div>
+              {console.log(user)}
+              {user ? <p>{user.dados.data.nome}</p> : <p>Não está logado</p>}
+              {user && <p>{user.dados.data.email}</p>}
+              {/* <div>
                 <img className="hover-rotate" src={ingrenagem} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
-              </div>
+              </div> */}
             </div>
-            {show && (
+            {/* {show && (
               <div id='showMenu' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                  <HoverMenu />
               </div>
-            )}
+            )} */}
           </div>
         </div>
 
