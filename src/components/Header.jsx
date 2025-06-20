@@ -12,11 +12,7 @@ const Header = () => {
 const location = useLocation();
 const mensagem = location.state?.msg;
 const { user } = useUser();
-  // const [show, setShow] = useState(false);
-
-  // const handleMouseEnter = () => setShow(true);
-  // const handleMouseLeave = () => setShow(false);
-
+  
   // const userLogado = user;
   const navigate = useNavigate();
   const handleLogin = () => {
@@ -41,18 +37,9 @@ const { user } = useUser();
           <div id='userLogin'>
             <img id='userFoto' src={userDefaut} alt="Imagem Usuário" />
             <div id='user-inf'>
-              {console.log(user)}
               {user ? <p>{user.dados.data.nome}</p> : <p>Não está logado</p>}
               {user && <p>{user.dados.data.email}</p>}
-              {/* <div>
-                <img className="hover-rotate" src={ingrenagem} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
-              </div> */}
             </div>
-            {/* {show && (
-              <div id='showMenu' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                 <HoverMenu />
-              </div>
-            )} */}
           </div>
         </div>
 
