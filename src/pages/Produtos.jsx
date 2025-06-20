@@ -9,6 +9,8 @@ import categoriaServer from '../services/CategoriaServer'
 import marcaServer from '../services/MarcaServer'
 import produtosServer from '../services/ProdutoServer'
 import { capitalizeWords, porcentagemDesconto} from '../utils/Utils'
+import GrupoBtn from '../components/GrupoBtn'
+import { useUser } from '../contexts/UserContext'
 
 const ProdutoStyled = styled.div`
   width: 100%;
@@ -56,10 +58,10 @@ const Produtos = () => {
   const [produtos, setProdutos] = useState([]);
   const [categorais, setCategorias] = useState([]);
   const [marcas, setMarcas] = useState([]);
+  const { user } = useUser();
 
   async function buscarProdutos() {
     const request = await produtosServer.findAll()
-    console.log(request.data.data)
     setProdutos(request.data.data);
   }
 
@@ -86,7 +88,8 @@ const Produtos = () => {
           <div className='resultado'>
             <h6>Resultados para "Tênis" - 389 produtos</h6>
           </div>
-          <div className='orderBy'>
+          {user && <GrupoBtn criar={true} rota="/cadastroProduto" />}
+          <div className="orderBy">
             <SelectMenu></SelectMenu>
           </div>
         </div>

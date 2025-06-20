@@ -6,6 +6,7 @@ import Home from '../pages/Home'
 import Notfound from '../pages/Notfound'
 import Produto from '../pages/Produto'
 import Produtos from '../pages/Produtos'
+import CadastroProduto from '../pages/CadastroProduto'
 
 const Paths = () => {
     return (
@@ -14,6 +15,7 @@ const Paths = () => {
                 <Routes>
                     <Route path="/" element={<PageLayout />}>
                         <Route index element={<Home />} />
+                        <Route path="/cadastroProduto" element={<CadastroProduto />} />
                         <Route path="/produtos" element={<Produtos />} />
                         <Route path="/produto/:id" element={<Produto />} />
                     </Route>
