@@ -1,6 +1,5 @@
-import { createContext, use, useContext, useEffect, useState } from 'react';
-import Cookies from 'js-cookie';
-
+import Cookies from "js-cookie";
+import { createContext, useContext, useEffect, useState } from "react";
 
 // Criação do contexto
 const UserContext = createContext();
@@ -13,13 +12,13 @@ export const UserProvider = ({ children }) => {
   const logout = () => setUser(null);
   
   useEffect(() => {
-    const userCookie = Cookies.get('user');
+    const userCookie = Cookies.get("user");
     if (userCookie) {
       try {
-        setUser(JSON.parse(userCookie)); 
+        setUser(JSON.parse(userCookie));
       } catch (e) {
-        console.error('Erro ao ler cookie do usuário:', e);
-        Cookies.remove('user');
+        console.error("Erro ao ler cookie do usuário:", e);
+        Cookies.remove("user");
       }
     }
   }, []);
