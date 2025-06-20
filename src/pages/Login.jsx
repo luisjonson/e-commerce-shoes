@@ -39,7 +39,7 @@ const Login = () => {
     try {
       await auth.login(user)
       const dados = await auth.usuarioLogado()
-      Cookies.set('user', JSON.stringify({ userLogado }));
+      Cookies.set('user', JSON.stringify({ dados }));
       setUserContext(dados)
 
       navigate('/',{
