@@ -60,6 +60,7 @@ const Produtos = () => {
   const [marcas, setMarcas] = useState([]);
   const { user } = useUser();
   const [ordemSelecionada, setOrdemSelecionada] = useState('');
+  const [filtroMarcas, setFiltroMarcas] = useState([]);
 
   async function buscarProdutos() {
     const request = await produtosServer.findAll()
@@ -82,7 +83,9 @@ const Produtos = () => {
     buscarMarca();
   }, []);
   
-  const produtosOrdenados = [...produtos].sort((a, b) => {
+  const produtosOrdenados = [...produtos]
+    .filter((p) => filtroMarcas.length === 0 || filtroMarcas.includes(p.marca_id.numsequencial))
+    .sort((a, b) => {
     
     switch (Number(ordemSelecionada)) 
     {
@@ -104,6 +107,14 @@ const Produtos = () => {
     { id: 4, nome: 'Queima estoque'},
   ];
 
+  const toggleMarca = (marcaId) => {
+    setFiltroMarcas((prev) =>
+      prev.includes(marcaId)
+        ? prev.filter((id) => id !== marcaId)
+        : [...prev, marcaId]
+    );
+  };
+
   return (
     <ProdutoStyled>
       <div className="content">
@@ -122,8 +133,12 @@ const Produtos = () => {
            <hr style={{ border: '1px solid #ccc', margin: '20px 0' }} />
             <h3>Marca</h3>
             {marcas.length > 0 && marcas.map((marca)=> (
-                <CheckboxLabel key={marca.numsequencial}>
-                  <label >{capitalizeWords(marca.nome)}</label>
+                <CheckboxLabel 
+                key={marca.numsequencial} 
+                checked={filtroMarcas.includes(marca.numsequencial)}
+                onChange={() => toggleMarca(marca.numsequencial)}
+                >
+                  <label>{capitalizeWords(marca.nome)}</label>
                 </CheckboxLabel>
               )
             )}
