@@ -150,7 +150,7 @@ const Produtos = () => {
       <div className="content">
         <div className='content-filtro'>
           <div className='resultado'>
-            <h6>Resultados para "Tênis" - 389 produtos</h6>
+            <h4>Resultados  - {produtosOrdenados.length > 1 ? ` ${produtosOrdenados.length} produtos` : ` ${produtosOrdenados.length} produto`} </h4>
           </div>
           {user && <GrupoBtn criar={true} rota="/cadastroProduto" />}
           <div className="orderBy">
