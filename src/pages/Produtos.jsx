@@ -61,6 +61,7 @@ const Produtos = () => {
   const { user } = useUser();
   const [ordemSelecionada, setOrdemSelecionada] = useState('');
   const [filtroMarcas, setFiltroMarcas] = useState([]);
+  const [filtroCategorias, setFiltroCategorias] = useState([]);
 
   async function buscarProdutos() {
     const request = await produtosServer.findAll()
@@ -85,6 +86,7 @@ const Produtos = () => {
   
   const produtosOrdenados = [...produtos]
     .filter((p) => filtroMarcas.length === 0 || filtroMarcas.includes(p.marca_id.numsequencial))
+    .filter((p) => filtroCategorias.length === 0 || filtroCategorias.includes(p.categoria_id.numsequencial))
     .sort((a, b) => {
     
     switch (Number(ordemSelecionada)) 
@@ -112,6 +114,14 @@ const Produtos = () => {
       prev.includes(marcaId)
         ? prev.filter((id) => id !== marcaId)
         : [...prev, marcaId]
+    );
+  };
+
+  const toggleCategoria = (categoriaId) => {
+    setFiltroCategorias((prev) =>
+      prev.includes(categoriaId)
+        ? prev.filter((id) => id !== categoriaId)
+        : [...prev, categoriaId]
     );
   };
 
@@ -145,7 +155,11 @@ const Produtos = () => {
 
             <h3>Categoria</h3>
             {categorais.length > 0 && categorais.map((categoria) =>(
-                <CheckboxLabel key={categoria.numsequencial}>
+                <CheckboxLabel 
+                key={categoria.numsequencial}
+                checked={filtroCategorias.includes(categoria.numsequencial)}
+                onChange={() => toggleCategoria(categoria.numsequencial)}
+                >
                   <label >{capitalizeWords(categoria.nome)}</label>
                 </CheckboxLabel>
               ) 
