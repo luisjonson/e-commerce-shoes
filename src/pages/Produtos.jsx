@@ -59,7 +59,7 @@ const Produtos = () => {
   const [categorais, setCategorias] = useState([]);
   const [marcas, setMarcas] = useState([]);
   const { user } = useUser();
-  const [filtroSelecionada, setFiltroSelecionada] = useState('');
+  const [ordemSelecionada, setOrdemSelecionada] = useState('');
 
   async function buscarProdutos() {
     const request = await produtosServer.findAll()
@@ -84,7 +84,8 @@ const Produtos = () => {
   
   const produtosOrdenados = [...produtos].sort((a, b) => {
     
-    switch (Number(filtroSelecionada)) {
+    switch (Number(ordemSelecionada)) 
+    {
       case 2:
         return parseFloat(a.preco) - parseFloat(b.preco);
       case 3:
@@ -92,9 +93,9 @@ const Produtos = () => {
       case 4:
           return  (b.queimaEstoque ? 1 : 0) - (a.queimaEstoque ? 1 : 0);
       default:
-        return a.titulo.localeCompare(b.titulo);
-      }
-    });
+      return a.titulo.localeCompare(b.titulo);
+    }
+  });
 
    const filtroProduto = [
     { id: 1, nome: 'Ordernar por: mais relavante ' },
@@ -112,7 +113,7 @@ const Produtos = () => {
           </div>
           {user && <GrupoBtn criar={true} rota="/cadastroProduto" />}
           <div className="orderBy">
-            <SelectMenu onChange={(e) => setFiltroSelecionada(e.target.value)} colecao={filtroProduto}></SelectMenu>
+            <SelectMenu onChange={(e) => setOrdemSelecionada(e.target.value)} colecao={filtroProduto}></SelectMenu>
           </div>
         </div>
         <div className='filtro'>
