@@ -62,6 +62,8 @@ const Produtos = () => {
   const [ordemSelecionada, setOrdemSelecionada] = useState('');
   const [filtroMarcas, setFiltroMarcas] = useState([]);
   const [filtroCategorias, setFiltroCategorias] = useState([]);
+  const [filtroGeneros, setFiltroGeneros] = useState([]);
+  const [filtroEstados, setFiltroEstados] = useState([]);
 
   async function buscarProdutos() {
     const request = await produtosServer.findAll()
@@ -87,6 +89,8 @@ const Produtos = () => {
   const produtosOrdenados = [...produtos]
     .filter((p) => filtroMarcas.length === 0 || filtroMarcas.includes(p.marca_id.numsequencial))
     .filter((p) => filtroCategorias.length === 0 || filtroCategorias.includes(p.categoria_id.numsequencial))
+    .filter((p) => filtroGeneros.length === 0 ||  filtroGeneros.includes(p.genero))
+    .filter((p) => filtroEstados.length === 0 ||  filtroEstados.includes(p.estadoProduto))
     .sort((a, b) => {
     
     switch (Number(ordemSelecionada)) 
@@ -122,6 +126,22 @@ const Produtos = () => {
       prev.includes(categoriaId)
         ? prev.filter((id) => id !== categoriaId)
         : [...prev, categoriaId]
+    );
+  };
+
+  const toggleGenero = (generoId) => {
+    setFiltroGeneros((prev) =>
+      prev.includes(generoId)
+        ? prev.filter((id) => id !== generoId)
+        : [...prev, generoId]
+    );
+  };
+
+  const toggleEstado = (estadoId) => {
+    setFiltroEstados((prev) =>
+      prev.includes(estadoId)
+        ? prev.filter((id) => id !== estadoId)
+        : [...prev, estadoId]
     );
   };
 
@@ -168,7 +188,10 @@ const Produtos = () => {
             <h3>Gênero</h3>
             <ul>
               {Object.entries(Generos).map(([key, value]) => (
-                <CheckboxLabel key={key}>
+                <CheckboxLabel key={key}
+                checked={filtroCategorias.includes(key)}
+                onChange={() => toggleGenero(key)}
+                >
                   <label >{value}</label>
                 </CheckboxLabel>
               ))}
@@ -176,7 +199,10 @@ const Produtos = () => {
 
             <h3>Estado</h3>
             {Object.entries(Estados).map(([key, value]) => (
-              <CheckboxLabel key={key}>
+              <CheckboxLabel key={key}
+              checked={filtroEstados.includes(key)}
+              onChange={() => toggleEstado(key)}
+              >
                 <label >{value}</label>
               </CheckboxLabel>
             ))}
