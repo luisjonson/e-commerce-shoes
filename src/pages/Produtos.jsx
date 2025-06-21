@@ -59,6 +59,7 @@ const Produtos = () => {
   const [categorais, setCategorias] = useState([]);
   const [marcas, setMarcas] = useState([]);
   const { user } = useUser();
+  const [filtroSelecionada, setFiltroSelecionada] = useState('');
 
   async function buscarProdutos() {
     const request = await produtosServer.findAll()
@@ -80,6 +81,27 @@ const Produtos = () => {
     buscarCategoria();
     buscarMarca();
   }, []);
+  
+  const produtosOrdenados = [...produtos].sort((a, b) => {
+    
+    switch (Number(filtroSelecionada)) {
+      case 2:
+        return parseFloat(a.preco) - parseFloat(b.preco);
+      case 3:
+        return porcentagemDesconto(parseFloat(a.precoPromocional), parseFloat(a.precoPromocional)) - porcentagemDesconto(parseFloat(b.preco), parseFloat(b.precoPromocional));
+      case 4:
+          return  (b.queimaEstoque ? 1 : 0) - (a.queimaEstoque ? 1 : 0);
+      default:
+        return a.titulo.localeCompare(b.titulo);
+      }
+    });
+
+   const filtroProduto = [
+    { id: 1, nome: 'Ordernar por: mais relavante ' },
+    { id: 2, nome: 'Preço',},
+    { id: 3, nome: 'Desconto'},
+    { id: 4, nome: 'Queima estoque'},
+  ];
 
   return (
     <ProdutoStyled>
@@ -90,7 +112,7 @@ const Produtos = () => {
           </div>
           {user && <GrupoBtn criar={true} rota="/cadastroProduto" />}
           <div className="orderBy">
-            <SelectMenu></SelectMenu>
+            <SelectMenu onChange={(e) => setFiltroSelecionada(e.target.value)} colecao={filtroProduto}></SelectMenu>
           </div>
         </div>
         <div className='filtro'>
@@ -133,7 +155,7 @@ const Produtos = () => {
 
           <div className='produto'>
             <ul>
-              {produtos.length > 0 && produtos.map((prod) => (
+              {produtosOrdenados.length > 0 && produtosOrdenados.map((prod) => (
                 <div key={prod.numsequencial}>
                   <CardProduto
                     desconto={porcentagemDesconto(prod.preco , prod.precoPromocional)  }
@@ -142,6 +164,7 @@ const Produtos = () => {
                     price={prod.preco}
                     category={prod.category}
                     valorComDesconto={prod.precoPromocional}
+                    queimaEstoque={prod.queimaEstoque}
                   >
                   </CardProduto>
                 </div>
