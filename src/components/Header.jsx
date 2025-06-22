@@ -12,8 +12,6 @@ const Header = () => {
 const location = useLocation();
 const mensagem = location.state?.msg;
 const { user } = useUser();
-  
-  // const userLogado = user;
   const navigate = useNavigate();
   const handleLogin = () => {
     navigate('login')
@@ -37,8 +35,8 @@ const { user } = useUser();
           <div id='userLogin'>
             <img id='userFoto' src={userDefaut} alt="Imagem Usuário" />
             <div id='user-inf'>
-              {user ? <p>{user.dados.data.nome}</p> : <p>Não está logado</p>}
-              {user && <p>{user.dados.data.email}</p>}
+              {user ? <p>{user.nome}</p> : <p>Não está logado</p>}
+              {user && <p>{user.email}</p>}
             </div>
           </div>
         </div>
