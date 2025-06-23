@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import icon_warn from '../../assets/icon-warn.svg';
+import { useEffect, useState } from "react";
 
 const MsgWarnStyled = styled.div`
   width: 99%;
@@ -25,7 +26,18 @@ const MsgWarnStyled = styled.div`
   }
 `;
 
-const MsgWarn = ({ msg }) => {
+const MsgWarn = ({ msg , tempo = 3000}) => {
+   const [visivel, setVisivel] = useState(true);
+  
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setVisivel(false);
+      }, tempo);
+  
+      return () => clearTimeout(timer);
+    }, [tempo]);
+  
+    if (!visivel) return null;
   return (
     <MsgWarnStyled>
       <img src={icon_warn} alt="Alerta" />

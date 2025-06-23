@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import iconSucess from '../../assets/icon_sucess.svg';
+import { useEffect, useState } from "react";
 
 const MsgSucessStyled = styled.div`
   width: 99%;
@@ -25,7 +26,18 @@ const MsgSucessStyled = styled.div`
   }
 `;
 
-const MsgSucess = ({ msg}) => {
+const MsgSucess = ({ msg , tempo = 3000}) => {
+   const [visivel, setVisivel] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisivel(false);
+    }, tempo);
+
+    return () => clearTimeout(timer);
+  }, [tempo]);
+
+  if (!visivel) return null;
 
   return (
     <MsgSucessStyled >
