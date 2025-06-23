@@ -26,7 +26,7 @@ const MsgSucessStyled = styled.div`
   }
 `;
 
-const MsgSucess = ({ msg , tempo = 3000}) => {
+const MsgSucess = ({ msg , tempo = 10000}) => {
    const [visivel, setVisivel] = useState(true);
 
   useEffect(() => {

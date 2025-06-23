@@ -26,7 +26,7 @@ const MsgWarnStyled = styled.div`
   }
 `;
 
-const MsgWarn = ({ msg , tempo = 3000}) => {
+const MsgWarn = ({ msg , tempo = 10000}) => {
    const [visivel, setVisivel] = useState(true);
   
     useEffect(() => {
