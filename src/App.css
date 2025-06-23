@@ -172,8 +172,10 @@ input:focus {
 
 button{
    cursor: pointer;
+   transition-duration: 200ms;
 }
 
 button:hover{
   box-shadow: 0 0 0 2px rgba(136, 136, 136, 0.28);
+  background-color: var(--tertiary);
 }
