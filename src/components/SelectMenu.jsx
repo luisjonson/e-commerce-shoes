@@ -9,21 +9,14 @@ const SelectMenuStyled = styled.select`
   background: transparent;
 `;
 
-const SelectMenu = ({ colecao, label, onChange, value}) => {
-//   const [opcao, setOpcao] = useState("");
-
-//   const handleChange = (e) => {
-//     setOpcao(e.target.value);
-//   };
-
+const SelectMenu = ({ colecao, label, onChange, optionKey = "id", optionValue = "nome", value}) => {
   return (
     <>
         <label>{label}</label>    
       <SelectMenuStyled id={label}  onChange={onChange} value={value}>
-        {colecao &&
-          colecao.map((item, index) => (
-            <option key={index} value={item.id}>
-              {item.nome}
+        {colecao?.map((item) => (
+            <option key={item[optionKey]} value={item[optionKey]}>
+              {item[optionValue]}
             </option>
           ))}
       </SelectMenuStyled>
