@@ -3,7 +3,7 @@ import logo from '../assets/logo-header.svg'
 import carrinho from '../assets/mini-cart.svg'
 import search from '../assets/Search.svg'
 import userDefaut from '../assets/userDefaut.svg'
-import { useUser } from '../contexts/UserContext'
+import { UseUser } from '../contexts/UserContext'
 import '../css/Header.css'
 import MsgSucess from './msg_alert/MsgSucess'
 
@@ -11,7 +11,7 @@ import MsgSucess from './msg_alert/MsgSucess'
 const Header = () => {
 const location = useLocation();
 const mensagem = location.state?.msg;
-const { user } = useUser();
+const { user } = UseUser();
   const navigate = useNavigate();
   const handleLogin = () => {
     navigate('login')

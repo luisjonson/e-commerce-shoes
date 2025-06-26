@@ -5,7 +5,7 @@ import FormCard from "../components/FormCard";
 import InputWithLabel from "../components/InputWithLabel";
 import Primary_button from "../components/button/Primary_button";
 import MsgError from "../components/msg_alert/MsgWarn";
-import { useUser } from "../contexts/UserContext";
+import { UseUser } from "../contexts/UserContext";
 
 const LoginStyled = styled.div`
   & .acesso {
@@ -21,7 +21,7 @@ const Login = () => {
   const [senha, setSenha] = useState("");
   const [termo, setTermo] = useState(false);
   const [msgError, setMsgError] = useState("");
-  const { login: userLogin } = useUser();
+  const { login: userLogin } = UseUser();
 
   const handerSubimit = async (e) => {
     e.preventDefault();
