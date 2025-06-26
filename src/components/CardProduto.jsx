@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 import Tiket_oferta from './Tiket_oferta'
+import icon_visualizar from '../assets/visualizacao.svg'
+import icon_editar from '../assets/edicao.svg'
+import icon_excluir from '../assets/excluir.svg'
+
 
 const CardProdutoStyled = styled.div`
     .card{
@@ -61,6 +65,25 @@ const CardProdutoStyled = styled.div`
                 }
             }
         }
+
+        .btn-crud{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            img {
+                width: 15px;
+                height: 15px;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+                margin: 5px;
+            }
+            
+            img:hover {
+                transform: scale(1.1);
+            }
+        }
         
     }
 
@@ -91,6 +114,11 @@ const CardProduto = ({ desconto, image ,category ,title, price, valorComDesconto
                         ? (<p className='valordesconto'>${valorComDesconto} </p>) 
                         : (<p className='valordesconto'>${price}</p>)}
                     </div>
+                </div>
+                <div className='btn-crud'>
+                    <img src={icon_visualizar} />
+                    <img src={icon_editar} />
+                    <img src={icon_excluir} />
                 </div>
             </div>
         </CardProdutoStyled>
