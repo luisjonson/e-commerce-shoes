@@ -46,23 +46,11 @@ const BtnCriar = ({ criar, rota }) => {
   const hendleCriar = () => {
     navigate(rota);
   };
-  // const hendleEditar = () => {
-  //   alert();
-  // };
-  // const hendleDeletar = () => {
-  //   alert();
-  // };
   return (
     <GrupoBtnCrudStyled>
       {criar && (
         <BtnCriarStyled onClick={hendleCriar}>Criar Produto</BtnCriarStyled>
       )}
-      {/* {editarDeletar && (
-        <>
-          <BtnEditarStyled onClick={hendleEditar}>Editar</BtnEditarStyled>
-          <BtnDeleteStyled onClick={hendleDeletar}>Deletar</BtnDeleteStyled>
-        </>
-     )} */}
     </GrupoBtnCrudStyled>
   );
 };
