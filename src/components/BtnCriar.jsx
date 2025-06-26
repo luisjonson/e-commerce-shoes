@@ -18,11 +18,20 @@ const GrupoBtnCrudStyled = styled.div`
 const BtnCriarStyled = styled.button`
   background-color: var(--verde-calro);
   border-radius: 5px;
+  transition-duration: 200ms;
+  &:hover {
+    background-color: var(--success-rgba);
+  }
 `;
+
 const BtnEditarStyled = styled.button`
   width: 50px;
   border-radius: 5px;
   background-color: var(--amarelo-claro);
+  transition-duration: 200ms;
+  &:hover {
+    background-color: var(--green-limon);
+  }
 `;
 const BtnDeleteStyled = styled.button`
   width: 50px;
@@ -31,29 +40,31 @@ const BtnDeleteStyled = styled.button`
   transition: background-color 0.3s;
 `;
 
-const GrupoBtn = ({ criar, editarDeletar, rota }) => {
+const BtnCriar = ({ criar, rota }) => {
   const navigate = useNavigate();
 
   const hendleCriar = () => {
     navigate(rota);
   };
-  const hendleEditar = () => {
-    alert();
-  };
-  const hendleDeletar = () => {
-    alert();
-  };
+  // const hendleEditar = () => {
+  //   alert();
+  // };
+  // const hendleDeletar = () => {
+  //   alert();
+  // };
   return (
     <GrupoBtnCrudStyled>
-      {criar && <BtnCriarStyled onClick={hendleCriar}>Criar Produto</BtnCriarStyled>}
-      {editarDeletar && (
+      {criar && (
+        <BtnCriarStyled onClick={hendleCriar}>Criar Produto</BtnCriarStyled>
+      )}
+      {/* {editarDeletar && (
         <>
           <BtnEditarStyled onClick={hendleEditar}>Editar</BtnEditarStyled>
           <BtnDeleteStyled onClick={hendleDeletar}>Deletar</BtnDeleteStyled>
         </>
-      )}
+     )} */}
     </GrupoBtnCrudStyled>
   );
 };
 
-export default GrupoBtn;
+export default BtnCriar;
