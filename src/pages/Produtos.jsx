@@ -9,8 +9,8 @@ import categoriaServer from '../services/CategoriaServer'
 import marcaServer from '../services/MarcaServer'
 import produtosServer from '../services/ProdutoServer'
 import { capitalizeWords, porcentagemDesconto} from '../utils/Utils'
-import GrupoBtn from '../components/GrupoBtn'
-import { useUser } from '../contexts/UserContext'
+import BtnCriar from '../components/BtnCriar'
+import { UseUser } from '../contexts/UserContext'
 
 const ProdutoStyled = styled.div`
   width: 100%;
@@ -58,7 +58,7 @@ const Produtos = () => {
   const [produtos, setProdutos] = useState([]);
   const [categorais, setCategorias] = useState([]);
   const [marcas, setMarcas] = useState([]);
-  const { user } = useUser();
+  const { user } = UseUser();
   const [ordemSelecionada, setOrdemSelecionada] = useState('');
   const [filtroMarcas, setFiltroMarcas] = useState([]);
   const [filtroCategorias, setFiltroCategorias] = useState([]);
@@ -86,7 +86,7 @@ const Produtos = () => {
     buscarMarca();
   }, []);
   
-  const produtosOrdenados = [...produtos]
+  const produtosOrdenados = Array.isArray(produtos) ? [...produtos]
     .filter((p) => filtroMarcas.length === 0 || filtroMarcas.includes(p.marca_id.numsequencial))
     .filter((p) => filtroCategorias.length === 0 || filtroCategorias.includes(p.categoria_id.numsequencial))
     .filter((p) => filtroGeneros.length === 0 ||  filtroGeneros.includes(p.genero))
@@ -104,7 +104,7 @@ const Produtos = () => {
       default:
       return a.titulo.localeCompare(b.titulo);
     }
-  });
+  }):[];
 
    const filtroProduto = [
     { id: 1, nome: 'Ordernar por: mais relavante ' },
@@ -152,7 +152,7 @@ const Produtos = () => {
           <div className='resultado'>
             <h4>Resultados  - {produtosOrdenados.length > 1 ? ` ${produtosOrdenados.length} produtos` : ` ${produtosOrdenados.length} produto`} </h4>
           </div>
-          {user && <GrupoBtn criar={true} rota="/cadastroProduto" />}
+          {user && <BtnCriar criar={true} rota="/cadastroProduto" />}
           <div className="orderBy">
             <SelectMenu onChange={(e) => setOrdemSelecionada(e.target.value)} colecao={filtroProduto}></SelectMenu>
           </div>
@@ -162,7 +162,7 @@ const Produtos = () => {
            <label>Filtrar por</label>
            <hr style={{ border: '1px solid #ccc', margin: '20px 0' }} />
             <h3>Marca</h3>
-            {marcas.length > 0 && marcas.map((marca)=> (
+            {Array.isArray(marcas) && marcas.length > 0 && marcas.map((marca)=> (
                 <CheckboxLabel 
                 key={marca.numsequencial} 
                 checked={filtroMarcas.includes(marca.numsequencial)}
@@ -174,7 +174,7 @@ const Produtos = () => {
             )}
 
             <h3>Categoria</h3>
-            {categorais.length > 0 && categorais.map((categoria) =>(
+            {Array.isArray(categorais) && categorais.length > 0 && categorais.map((categoria) =>(
                 <CheckboxLabel 
                 key={categoria.numsequencial}
                 checked={filtroCategorias.includes(categoria.numsequencial)}
