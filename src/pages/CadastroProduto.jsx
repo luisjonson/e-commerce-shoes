@@ -134,7 +134,8 @@ const CadastroProduto = () => {
             onChange={(e) => setLinkImagem(e.target.value)}
             required
           />
-          <SelectMenu
+          <SelectMenu 
+            required
             colecao={categorais.map(cat => ({
               id: cat.numsequencial,
               nome: cat.nome
@@ -146,6 +147,7 @@ const CadastroProduto = () => {
             label="Categorias"
           />
           <SelectMenu
+            required
             colecao={marcas.map(cat => ({
               id: cat.numsequencial,
               nome: cat.nome
@@ -157,6 +159,7 @@ const CadastroProduto = () => {
             label="Marcas"
           />
           <SelectMenu
+            required
             colecao={Object.entries(Generos).map(([key, value]) => ({ numsequencial: key, nome: value }))}
             optionKey="numsequencial"
             optionValue="nome"
@@ -165,6 +168,7 @@ const CadastroProduto = () => {
             label="Gêneros"
           />
           <SelectMenu
+            required
             colecao={Object.entries(Estados).map(([key, value]) => ({ numsequencial: key, nome: value }))}
             optionKey="numsequencial"
             optionValue="nome"
