@@ -32,13 +32,7 @@ If you are developing a production application, we recommend using TypeScript wi
 # ultilizando o axios 
 ## npm install axios
 
-# Configuração do arquivo .env
-
-### VITE_HOST=192.168.1.5
-### VITE_PORT=5173
-
-### VITE_API_URL=http://192.168.1.5:3000
-### VITE_APP_TITLE=E-commerce Shoes
+# Descrição da variaveis do arquivo .env
 
 VITE_HOST -> Ip do Front_end  
 VITE_PORT -> A porta Front_end  
