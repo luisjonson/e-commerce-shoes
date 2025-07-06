@@ -40,4 +40,7 @@ If you are developing a production application, we recommend using TypeScript wi
 ### VITE_API_URL=http://192.168.1.5:3000
 ### VITE_APP_TITLE=E-commerce Shoes
 
-
+VITE_HOST -> Ip do Front_end
+VITE_PORT -> A porta Front_end
+VITE_API_URL -> Endereço de conexão com o back_end.
+VITE_APP_TITLE -> Titulo da aplicação.
